@@ -7,8 +7,12 @@ db.once('open', async () => {
         firstName: 'Bonatics'
     })
     await User.create({
-        firstName: 'OtherName'
+        firstName: 'Jason'
     })
+
+console.log("**Seeded!!");
+const test = User.findOne({ firstName: 'Bonatics'}) 
+console.log(test.firstName)
 
     process.exit();
 })
