@@ -108,7 +108,7 @@
   },
   
     "include": [
-      "src"
+      "client/src"
     ]
   
 }
