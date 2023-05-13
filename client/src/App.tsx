@@ -1,16 +1,49 @@
 import React from "react";
-import BonaticsContainer from './components/BonaticsContainer';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
+import { 
+  ApolloClient, 
+  ApolloProvider, 
+  InMemoryCache, 
+  createHttpLink 
+} from '@apollo/client';
+import { setContext } from '@apollo/client/link/context'
 
-// const App = () => 
+import BonaticsContainer from './components/BonaticsContainer';
 
-//   <BonaticsContainer />
+const httpLink = createHttpLink({
+  uri: '/graphql',
+});
 
-// export default App
+const authLink = setContext((_, { headers }) => {
+  const token = localStorage.getItem('id_token');
+  return {
+    headers: {
+      ...headers,
+      authorization: token ? `Bearer ${token}` : '',
+    },
+  };
+});
+
+const client = new ApolloClient({
+  link: authLink.concat(httpLink),
+  cache: new InMemoryCache(),
+});
+
 function App() {
   return (
-    <BonaticsContainer />
+    <ApolloProvider client={client}>
+      <Router>
+        <div>
+          <Routes>
+            <Route
+              path = '/'
+              element = {<BonaticsContainer />}
+            ></Route>
+          </Routes>
+        </div>
+      </Router>
+    </ApolloProvider>
+
   );
 }
 
