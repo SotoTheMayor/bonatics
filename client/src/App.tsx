@@ -8,7 +8,10 @@ import {
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context'
 
-import BonaticsContainer from './components/BonaticsContainer';
+// import BonaticsContainer from './components/BonaticsContainer';
+import Home from "./pages/Home";
+import Header from './components/Header';
+import Footer from './components/Footer';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -34,12 +37,16 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <div>
-          <Routes>
-            <Route
-              path = '/'
-              element = {<BonaticsContainer />}
-            ></Route>
-          </Routes>
+          <Header />
+            <div>
+              <Routes>
+                <Route
+                  path = '/'
+                  element = {<Home />}
+                ></Route>
+              </Routes>
+            </div>
+          <Footer />
         </div>
       </Router>
     </ApolloProvider>
