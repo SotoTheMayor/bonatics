@@ -29,6 +29,8 @@ const userSchema = new Schema({
         type: String,
         required: true,
     },
+    wishList: [wishSchema],
+    tradeList: [tradeSchema],
     
 })
 // hash user password
