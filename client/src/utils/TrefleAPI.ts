@@ -1,0 +1,11 @@
+
+
+
+
+export const searchTrefleAPI = (token: any, query: any) => {
+    console.log(`https://trefle.io/api/v1/plants?token=${token}&q=${query}`);
+    return fetch(`https://trefle.io/api/v1/plants?token=${token}&q=${query}`, {
+        method: 'GET'
+    })
+}
+
