@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import logo from '../../images/logo-no-bg.png'
 
 import Auth from '../../utils/auth';
 
@@ -27,7 +28,8 @@ const Header = () => {
                         </>
                     )}
             
-            </ul> 
+            <img className='logo' src={logo} alt='logo' />
+            </ul>
         </header>
     )
 };

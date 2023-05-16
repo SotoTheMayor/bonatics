@@ -1,9 +1,14 @@
+
 :root {
+  overflow: hidden;
+}
+
+#root {
   background-image: url(./images/background.svg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  height: 120%;
+  height: 120vh;
   overflow: hidden;
 }
 
@@ -11,17 +16,34 @@
   text-align: center;
 }
 
+header {
+  height: fit-content;
+  background-color: rgba(223, 255, 202, 0.692);
+}
+
 .navbar {
   text-decoration: none;
+  color: #50a060;
+}
+
+.navbar:hover {
+  color: rgb(33, 70, 9);
 }
 
 li {
   display: inline-block;
-  margin: 25px;
+  margin: 15px;
   font-weight: bolder;
   list-style-type: none;
 }
 
+.logo {
+  float: right;
+  margin-top: 10px;
+  width: 300px;
+  height: 50px;
+  object-fit: cover;
+}
 
 /* .App-logo {
   height: 40vmin;
