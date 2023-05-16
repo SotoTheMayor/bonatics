@@ -10,6 +10,7 @@ import { setContext } from '@apollo/client/link/context'
 
 // import BonaticsContainer from './components/BonaticsContainer';
 import Home from "./pages/Home";
+import Profile from './pages/Profile'
 import Header from './components/Header';
 import Footer from './components/Footer';
 
@@ -43,6 +44,10 @@ function App() {
                 <Route
                   path = '/'
                   element = {<Home />}
+                ></Route>
+                <Route
+                  path = '/profile'
+                  element = {<Profile />}
                 ></Route>
               </Routes>
             </div>

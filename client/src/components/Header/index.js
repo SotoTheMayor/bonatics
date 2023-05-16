@@ -15,6 +15,10 @@ const Header = () => {
                     <Link to='/'>
                         <h3>Home</h3>
                     </Link>
+                    {/* delete after we add logins */}
+                    <Link to='/profile'>
+                        <h3>Profile (demo)</h3>
+                    </Link>
                 </div>
                 <div>
                     {Auth.loggedIn() ? (
