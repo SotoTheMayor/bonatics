@@ -6,7 +6,8 @@ const resolvers = {
     Query: {
         user: async () => {
             return User.find({})
-        }
+        },
+        
     }
 };
 

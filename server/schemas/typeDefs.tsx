@@ -1,4 +1,4 @@
-const { gql } = require('apollo-server-express');
+const { gql } = require("apollo-server-express");
 
 const typeDefs = gql`
     type User {
@@ -6,29 +6,53 @@ const typeDefs = gql`
         userName: String!
         password: String!
         email: String!
+        items: [tradeItem]
     }
 
-    type tradeItem{
+    type Trade{
         _id: ID!
         userID: String!
         plantName: String!
-        traderID: String!
+        quantity: Int!
+        traderID: String
+        request: [wishList]
     }
 
-    type tradeIP{
-        _id: ID!
-        userID: String!
-        plantName: String!
-    }
-
-    type wishList{
+    type Wish{
         _id: ID!
         userID: String!
         wishName: String!
     }
+
+    type Auth {
+        token: ID
+        user: User
+    }    
     
     type Query {
-        user: [User]
+        user: User
+        request(_id: [ID]!, wishName: String): [Wish]
+        trade(_id: ID!, userID: String!, plantName: String!, quantity: Int!, traderID: String): [Trade]
+    }
+
+    type Mutation {
+        addUser(
+            firstName: String!,
+            lastName: String!,
+            userName: String!,
+            email: String!,
+            password: String!
+        ): Auth 
+        addWish(wishName: [ID]!): Wish
+        addTrade(
+            _id: ID!,
+            plantName: String!,
+            quantity: Int!
+        ): Trade
+        login(
+            email: String!, 
+            password: String!
+        ): Auth
     }
 
 `;
