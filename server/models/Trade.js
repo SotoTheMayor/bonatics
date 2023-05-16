@@ -19,6 +19,6 @@ const tradeSchema = new Schema({
     },
   });
   
-  const Matchup = model('Trade', tradeSchema);
+  const Trade = model('Trade', tradeSchema);
   
   module.exports = Trade;
