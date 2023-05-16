@@ -30,7 +30,7 @@ const typeDefs = gql`
     }    
     
     type Query {
-        user: User
+        users: User
         request(_id: [ID]!, wishName: String): [Wish]
         trade(_id: ID!, userID: String!, plantName: String!, quantity: Int!, traderID: String): [Trade]
     }
