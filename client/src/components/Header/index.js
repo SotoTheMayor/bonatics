@@ -10,32 +10,24 @@ const Header = () => {
     };
     return (
         <header>
-            <div>
-                <div>
-                    <Link to='/'>
-                        <h3>Home</h3>
-                    </Link>
-                    {/* delete after we add logins */}
-                    <Link to='/profile'>
-                        <h3>Profile (demo)</h3>
-                    </Link>
-                </div>
-                <div>
-                    {Auth.loggedIn() ? (
+          <ul>
+            <li><Link to='/' className='navbar'>home</Link></li>
+            <li><Link to='/profile' className='navbar'>profile</Link></li>
+            {Auth.loggedIn() ? (
                         <>
-                            <Link to='/myProfile'>
-                                <h3>{Auth.getProfile().data.username}'s Profile</h3>
+                            <Link to='/myProfile' className='navbar'>
+                                <li>{Auth.getProfile().data.username}'s Profile</li>
                             </Link>
                             <button onClick={logout}>Logout</button>
                         </>
                     ) : (
                         <>
-                        <Link to='login'><h3>Login</h3></Link>
-                        <Link to='signup'><h3>Create Account</h3></Link>
+                        <li><Link to='login' className='navbar'>Login</Link></li>
+                        <li><Link to='signup' className='navbar'>Create Account</Link></li>
                         </>
                     )}
-                </div>
-            </div>
+            
+            </ul> 
         </header>
     )
 };
