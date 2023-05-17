@@ -12,8 +12,8 @@ const Header = () => {
     return (
         <header>
           <ul>
-            <li><Link to='/' className='navbar'>home</Link></li>
-            <li><Link to='/profile' className='navbar'>profile</Link></li>
+            <li><Link to='/' className='navbar'>Home</Link></li>
+            <li><Link to='/profile' className='navbar'>Profile</Link></li>
             {Auth.loggedIn() ? (
                         <>
                             <Link to='/myProfile' className='navbar'>

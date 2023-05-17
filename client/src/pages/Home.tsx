@@ -1,5 +1,49 @@
+
+import React from "react";
+import Tile from "./Tile";
+
+const homeTiles = [
+    {
+        title: "HOUSE PLANTS",
+        image: "require (an image from the DB)",
+        description: "maybe a description?",
+        url: "route to the page",
+      },
+      {
+        title: "TROPICAL PLANTS",
+        image: "require (an image from the DB)",
+        description: "maybe a description?",
+        url: "route to the page",
+      },
+      {
+        title: "TREES",
+        image: "require (an image from the DB)",
+        description: "maybe a description?",
+        url: "route to the page",
+      },
+      {
+        title: "POPULAR",
+        image: "require (an image from the DB)",
+        description: "maybe a description?",
+        url: "route to the page",
+      },
+      {
+        title: "MORE PLANTS",
+        image: "require (an image from the DB)",
+        description: "maybe a description?",
+        url: "route to the page",
+      },
+      {
+        title: "EXTRA",
+        image: "require (an image from the DB)",
+        description: "maybe a description?",
+        url: "route to the page",
+      },
+]
+
 import React, { useState, useEffect } from "react";
 import { searchTrefleAPI } from "../utils/TrefleAPI";
+
 
 const Home = () => {
 
@@ -28,7 +72,27 @@ const Home = () => {
     
     return (
         <div>
-            <h1>This is the Home Page</h1>
+
+            <div className="search-cont">
+            <input className="search" placeholder="Search for a plant"/>
+            </div>
+            <div className="tile-container">
+            {homeTiles.map((tile) => {
+                return (
+                  <div>
+                    <Tile
+                      title={tile.title}
+                      image={tile.image}
+                      description={tile.description}
+                      url={tile.url}
+                    ></Tile>
+                  </div>
+            )
+        })}
+        </div>
+        </div>
+
+
             <div>
             {/* <button onClick={() => {handleSearchTrefleAPI(`XC-QTj1ss7g2Wy0TeiT9kjK-icsjX5s7-W7ZD1FjaXk`, `pothos`)}}>Click</button> */}
             <button onClick={() => {handleSearchTrefleAPI(`sk-k5vt646417c428ab7960`, `pothos`)}}>CLick</button>
@@ -48,3 +112,4 @@ const Home = () => {
 }
 
 export default Home
+
