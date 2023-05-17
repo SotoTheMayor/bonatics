@@ -60,6 +60,7 @@ const Home = () => {
             console.log(test)
             const plantData = items.data.map((plant: any) => ({
                 plantName: plant.common_name,
+                plantImage: plant.default_image.small_url
             //     // plantImage: plant.image_url
             }));
             console.log(plantData)
@@ -102,7 +103,7 @@ const Home = () => {
                 return (
                     <>
                     <div>{plant.plantName}</div>
-                    {/* <img src={plant.plantImage}></img> */}
+                    <img src={plant.plantImage} alt="plant"></img>
                     </>
                 );
             })}
