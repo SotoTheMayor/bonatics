@@ -9,7 +9,7 @@
   background-position: center;
   background-size: cover;
   height: 120vh;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .App {
