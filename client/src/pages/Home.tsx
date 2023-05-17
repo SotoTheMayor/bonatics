@@ -14,8 +14,8 @@ const Home = () => {
             }
             const { items } = await response.json();
             const plantData = items.map((plant: any) => ({
-                plantName: plant.family_common_name,
-                plantImage: plant.image_url
+                plantName: plant.id,
+                // plantImage: plant.image_url
             }));
             setSearchedPlants(plantData)
         } catch (err) {
@@ -27,14 +27,15 @@ const Home = () => {
         <div>
             <h1>This is the Home Page</h1>
             <div>
-            <button onClick={() => {handleSearchTrefleAPI(`XC-QTj1ss7g2Wy0TeiT9kjK-icsjX5s7-W7ZD1FjaXk`, `pothos`)}}>Click</button>
+            {/* <button onClick={() => {handleSearchTrefleAPI(`XC-QTj1ss7g2Wy0TeiT9kjK-icsjX5s7-W7ZD1FjaXk`, `pothos`)}}>Click</button> */}
+            <button onClick={() => {handleSearchTrefleAPI(`sk-k5vt646417c428ab7960`, `fern`)}}>CLick</button>
  
             <div>{searchedPlants}</div>
             {searchedPlants.map((plant: any) => {
                 return (
                     <>
                     <div>{plant.plantName}</div>
-                    <img src={plant.plantImage}></img>
+                    {/* <img src={plant.plantImage}></img> */}
                     </>
                 );
             })}
