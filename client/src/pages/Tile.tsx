@@ -12,9 +12,9 @@ const Tile = (props: cardProps) => {
           <div className="tile-title">{props.title}</div>
           <img src={props.image} className="tile-image" />
           <a href={props.url} className="tile-url">
-            <button className="site-but">More Info</button>
+            {/* <button className="site-but">More Info</button> */}
           </a>
-          <div className="tile-desc">{props.description}</div>
+          {/* <div className="tile-desc">{props.description}</div> */}
         </div>
       </div>
   );
