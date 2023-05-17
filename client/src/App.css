@@ -5,11 +5,14 @@
 
 #root {
   background-image: url(./images/background.svg);
-  background-repeat: no-repeat;
+  background-repeat:no-repeat;
+  -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
   background-position: center;
   background-size: cover;
-  height: 120vh;
-  overflow: hidden;
+min-height: 100vh;
+  /* overflow: hidden; */
 }
 
 .App {
@@ -19,6 +22,11 @@
 header {
   height: fit-content;
   background-color: rgba(223, 255, 202, 0.7);
+}
+
+footer {
+  position:relative;
+  bottom:0px;
 }
 
 .navbar {
