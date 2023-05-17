@@ -17,10 +17,10 @@ const resolvers = {
             const user = await User.create(args);
             return user;
         },
-        addWish: async (parent, args) => {
-            const wish = await Wish.create(args);
-            return wish;
-        },
+        // addWish: async (parent, args) => {
+        //     const wish = await Wish.create(args);
+        //     return wish;
+        // },
         addTrade: async (parent, args) => {
             const trade = await Trade.create(args);
             return trade;
