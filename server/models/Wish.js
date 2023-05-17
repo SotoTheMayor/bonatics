@@ -5,12 +5,12 @@ const wishSchema = new Schema({
       type: String,
       required: true,
     },
-    wishName: {
+    plantInterested: {
       type: String,
       required: true,
     },
   });
   
-  const Wish = model('Wish', wsihSchema);
+  const Wish = model('Wish', wishSchema);
   
   module.exports = Wish;
