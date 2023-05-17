@@ -56,8 +56,6 @@ const Home = () => {
                 throw new Error('something went wrong!')
             }
             const items = await response.json();
-            const test = items.data
-            console.log(test)
             const plantData = items.data.map((plant: any) => ({
                 plantName: plant.common_name,
                 plantImage: plant.default_image.small_url,
