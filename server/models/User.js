@@ -1,10 +1,11 @@
 const { Schema, model } = require('mongoose');
 
-
-
 const bcrypt = require('bcrypt');
-const { wishSchema } = require('./Wish')
-const { tradeSchema } = require('./Trade')
+
+const wishSchema = require('./Wish');
+
+const tradeSchema  = require('./Trade');
+
 
 // const bcrypt = require('bcrypt');
 
@@ -24,8 +25,8 @@ const userSchema = new Schema({
         type: String,
         required: true,
     },
-    wish: [Wish],
-    trade: [Trade],
+    wish: [wishSchema],
+    trade: [tradeSchema]    
     
 })
 // hash user password
