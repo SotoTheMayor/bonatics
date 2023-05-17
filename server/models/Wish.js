@@ -5,7 +5,14 @@ const wishSchema = new Schema({
       type: String,
       required: true,
     },
-    plantInterested: {
+    plantId: {
+      type: String,
+      required: true,
+    },
+    plantImage: {
+      type: String,
+    },
+    plantName: {
       type: String,
       required: true,
     },

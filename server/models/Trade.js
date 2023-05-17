@@ -5,13 +5,16 @@ const tradeSchema = new Schema({
       type: String,
       required: true,
     },
-    plantName: {
+    plantId: {
       type: String,
       required: true,
     },
-    quantity: {
-      type: Number,
-      default: 0,
+    plantImage: {
+      type: String,
+    },
+    plantName: {
+      type: String,
+      required: true,
     },
   });
   
