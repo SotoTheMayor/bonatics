@@ -114,6 +114,38 @@ input{
   border-style: none;
 }
 
+.profile-cont {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.OOT-cont {
+  width: 50%;
+  height: 50%;
+  border-style: solid;
+  border-color: #50a060;
+  
+}
+
+.profile {
+  background-color: rgba(223, 255, 202, 0.7);
+width: 100vw;
+height: 80vh;
+}
+
+.profile-header {
+  color: #50a060;;
+  font-size: 30px;
+  font-weight: bolder;
+}
+
+.OOT-header {
+  background-color:#50a060;
+}
+
 /* .App-logo {
   height: 40vmin;
   pointer-events: none;

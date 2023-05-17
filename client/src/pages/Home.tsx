@@ -1,5 +1,5 @@
-
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { searchTrefleAPI } from "../utils/TrefleAPI";
 import Tile from "./Tile";
 
 const homeTiles = [
@@ -41,8 +41,7 @@ const homeTiles = [
       },
 ]
 
-import React, { useState, useEffect } from "react";
-import { searchTrefleAPI } from "../utils/TrefleAPI";
+
 
 
 const Home = () => {
@@ -68,6 +67,7 @@ const Home = () => {
     }
     
     return (
+        <>
         <div>
 
             <div className="search-cont">
@@ -104,7 +104,8 @@ const Home = () => {
                 );
             })}
             </div>
-        </div>
+        
+        </>
     )
 }
 
