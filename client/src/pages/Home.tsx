@@ -60,8 +60,8 @@ const Home = () => {
             console.log(test)
             const plantData = items.data.map((plant: any) => ({
                 plantName: plant.common_name,
-                plantImage: plant.default_image.small_url
-            //     // plantImage: plant.image_url
+                plantImage: plant.default_image.small_url,
+                plantId: plant.id,
             }));
             console.log(plantData)
             setSearchedPlants(plantData)
@@ -95,7 +95,6 @@ const Home = () => {
 
 
             <div>
-            {/* <button onClick={() => {handleSearchTrefleAPI(`XC-QTj1ss7g2Wy0TeiT9kjK-icsjX5s7-W7ZD1FjaXk`, `pothos`)}}>Click</button> */}
             <button onClick={() => {handleSearchTrefleAPI(`sk-k5vt646417c428ab7960`, `pothos`)}}>CLick</button>
  
             {/* <div>{searchedPlants}</div> */}
@@ -103,7 +102,7 @@ const Home = () => {
                 return (
                     <>
                     <div>{plant.plantName}</div>
-                    <img src={plant.plantImage} alt="plant"></img>
+                    <img src={plant.plantImage} alt="plant" key={plant.plantId}></img>
                     </>
                 );
             })}
