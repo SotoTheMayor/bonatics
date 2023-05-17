@@ -1,5 +1,7 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
+const { wishSchema } = require('./Wish')
+const { tradeSchema } = require('./Trade')
 
 // const bcrypt = require('bcrypt');
 

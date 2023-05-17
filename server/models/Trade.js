@@ -21,4 +21,4 @@ const tradeSchema = new Schema({
   
   const Trade = model('Trade', tradeSchema);
   
-  module.exports = Trade;
+  module.exports = { Trade, tradeSchema };
