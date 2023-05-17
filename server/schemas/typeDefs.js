@@ -11,16 +11,14 @@ const typeDefs = gql`
     }
 
     type Trade{
-        _id: ID!
-        user: User!
+        tradeID: ID!
         plantName: String!
         quantity: Int!
     
     }
 
     type Wish{
-        _id: ID!
-        userID: String!
+        wishID: ID!
         plantInterested: String!
     }
 
@@ -30,8 +28,8 @@ const typeDefs = gql`
     }    
     
     type Query {
-        users: User
-    
+        users: [User]
+        me: User
     }
 
     type Mutation {
@@ -40,16 +38,16 @@ const typeDefs = gql`
             email: String!,
             password: String!
         ): Auth 
+        login(
+            email: String!, 
+            password: String!
+        ): Auth
         addWish(wishName: [ID]!): Wish
         addTrade(
             _id: ID!,
             plantName: String!,
             quantity: Int!
         ): Trade
-        login(
-            email: String!, 
-            password: String!
-        ): Auth
     }
 
 `;

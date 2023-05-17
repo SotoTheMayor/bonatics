@@ -1,10 +1,6 @@
-const { Schema, model } = require('mongoose');
+const { Schema, Types } = require('mongoose');
 
 const tradeSchema = new Schema({
-    userID: {
-      type: String,
-      required: true,
-    },
     plantName: {
       type: String,
       required: true,
@@ -13,8 +9,10 @@ const tradeSchema = new Schema({
       type: Number,
       default: 0,
     },
+    tradeID: {
+      type: Schema.Types.ObjectId,
+      default: () => new Types.ObjectId(),
+  },
   });
-  
-  // const Trade = model('Trade', tradeSchema);
-  
+
   module.exports =  tradeSchema ;
