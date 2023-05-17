@@ -10,7 +10,7 @@ const Footer = () => {
     };
     return (
         <footer>
-            <div>
+            {/* <div>
                 <div>
                     <Link to='/'>
                         <h3>Home</h3>
@@ -31,7 +31,8 @@ const Footer = () => {
                         </>
                     )}
                 </div>
-            </div>
+            </div> */}
+            footer goes here
         </footer>
     )
 };
