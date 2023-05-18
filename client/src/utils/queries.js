@@ -6,13 +6,8 @@ export const QUERY_USERS = gql`
             _id
             username
             password
-            items
+            trade
         }
     }
 `;
-
-export const QUERY_REQUEST = gql`
-    query req
-
-`
 

@@ -13,12 +13,8 @@ const tradeSchema = new Schema({
       type: Number,
       default: 0,
     },
-    traderID: {
-      type: String,
-      required: true,
-    },
   });
   
-  const Trade = model('Trade', tradeSchema);
+  // const Trade = model('Trade', tradeSchema);
   
-  module.exports = { Trade, tradeSchema };
+  module.exports =  tradeSchema ;

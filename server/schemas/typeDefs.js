@@ -6,22 +6,22 @@ const typeDefs = gql`
         userName: String!
         password: String!
         email: String!
-        items: [tradeItem]
+        trade: [Trade]
+        wish: [Wish]
     }
 
     type Trade{
         _id: ID!
-        userID: String!
+        user: User!
         plantName: String!
         quantity: Int!
-        traderID: String
-        request: [wishList]
+    
     }
 
     type Wish{
         _id: ID!
         userID: String!
-        wishName: String!
+        plantInterested: String!
     }
 
     type Auth {
@@ -30,15 +30,12 @@ const typeDefs = gql`
     }    
     
     type Query {
-        user: User
-        request(_id: [ID]!, wishName: String): [Wish]
-        trade(_id: ID!, userID: String!, plantName: String!, quantity: Int!, traderID: String): [Trade]
+        users: User
+    
     }
 
     type Mutation {
         addUser(
-            firstName: String!,
-            lastName: String!,
             userName: String!,
             email: String!,
             password: String!
