@@ -1,13 +1,16 @@
 const { Schema, Types } = require('mongoose');
 
 const tradeSchema = new Schema({
-    plantName: {
+    plantId: {
       type: String,
       required: true,
     },
-    quantity: {
-      type: Number,
-      default: 0,
+    plantImage: {
+      type: String,
+    },
+    plantName: {
+      type: String,
+      required: true,
     },
     tradeID: {
       type: Schema.Types.ObjectId,
