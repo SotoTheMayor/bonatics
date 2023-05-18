@@ -122,27 +122,50 @@ input{
   border-style: none;
 }
 
-.profile-cont {
-  display: flex;
+.profile {
   align-items: center;
   justify-content: center;
   width: 100%;
   height: 100%;
+
 }
 
-.OOT-cont {
+.prof-1 {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.profile-cont {
+  display: flex;
+  padding-bottom: 15px;
+  background-color: rgba(223, 255, 202, 0.7);
+  width: 100vw;
+  height: 85vh;
+  overflow:auto;
+}
+
+.OOT-cont, .wishlist-cont  {
+  display:flex;
+  flex-direction: column;
   width: 50%;
-  height: 50%;
+  height: 95%;
   border-style: solid;
   border-color: #50a060;
+  margin:0px;
   
 }
 
-.profile {
-  background-color: rgba(223, 255, 202, 0.7);
-width: 100vw;
-height: 80vh;
+.trade-cont {
+  width: 50%;
+  height: 95%;
+  border-style: solid;
+  border-color: #50a060;
+  float:right;
+  margin: 0px;
 }
+
 
 .profile-header {
   color: #50a060;;
@@ -150,9 +173,14 @@ height: 80vh;
   font-weight: bolder;
 }
 
-.OOT-header {
+.OOT-header, .wishlist-header, .trade-header {
   background-color:#50a060;
+  color: rgba(223, 255, 202, 0.7);
+  font-size: 24px;
+  font-weight: bolder;
 }
+
+
 
 /* .App-logo {
   height: 40vmin;
