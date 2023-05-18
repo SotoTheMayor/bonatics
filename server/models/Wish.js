@@ -1,7 +1,9 @@
-const { Schema, model } = require('mongoose');
+const { Schema, Types } = require('mongoose');
+
+// sub document, don't need model, Types is a class built into mongoose and auto generates and id
 
 const wishSchema = new Schema({
-    userID: {
+    plantName: {
       type: String,
       required: true,
     },
@@ -11,13 +13,12 @@ const wishSchema = new Schema({
     },
     plantImage: {
       type: String,
-    },
-    plantName: {
-      type: String,
       required: true,
     },
+    wishID: {
+        type: Schema.Types.ObjectId,
+        default: () => new Types.ObjectId(),
+    },
   });
-  
-  // const Wish = model('Wish', wishSchema);
   
   module.exports =  wishSchema ;
