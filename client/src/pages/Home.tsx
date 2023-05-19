@@ -84,20 +84,22 @@ const Home = () => {
     return (
         <>
             <div>
+              <div className="search-cont">
                 <Form onSubmit={handleFormSubmit}>
                     <Form.Control
                         name='searchinput'
-                        className='search-cont'
+                        className='search'
                         value={searchInput}
-                        size='lg'
+                        // size='lg'
                         type='text'
                         placeholder="Search for a plant"
                         onChange={(e) => setSearchInput(e.target.value)}
                     />
-                    <Button type='submit' variant='success' size='lg'>
+                    <Button type='submit' variant='success' className="search-button">
                         Submit Search
                     </Button>
                 </Form>
+                </div>
 
                 <div className="tile-container">
                     {searchedPlants.slice(0,12).map((plant: any) => {

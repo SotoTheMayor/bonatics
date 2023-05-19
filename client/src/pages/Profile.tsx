@@ -16,7 +16,7 @@ export default function Profile() {
             <div className="profile-header">"User" profile</div>
                 <div className="prof-1">
             <div className='OOT-cont'>
-                <div className="OOT-header">Open To Trade</div>
+                <div className="prof-sub-header">Open To Trade</div>
                 <div>
                 {wishlistItems.map((wishlist) => {
                 return (
@@ -30,10 +30,10 @@ export default function Profile() {
         </div>
             </div>
             <div className="wishlist-cont">
-                <div className="wishlist-header">Wishlist</div>
+                <div className="prof-sub-header">Wishlist</div>
             </div>
             <div className="trade-cont">
-                <div className="trade-header">Plant Your Garden</div>
+                <div className="prof-sub-header">Plant Your Garden</div>
             </div>
             </div>
             </div>
