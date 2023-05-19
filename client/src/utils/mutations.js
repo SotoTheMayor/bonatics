@@ -27,15 +27,30 @@ mutation login($email: String!, $password: String!) {
   }
 `;
 
-export const SAVE_TRADE = gql`
-mutation saveTrade ($plantData: PlantInput!) {
-  saveTrade(plantData: $plantData){
+export const ADD_TRADE = gql`
+mutation addTrade ($tradeData: TradeInput) {
+  addTrade (tradeData: $tradeData) {
     _id
+    userName
     trade {
-plantId
-plantImage
-plantName
+      plantId
+      plantImage
+      plantName
     }
   }
 }
-`
+`;
+
+export const ADD_WISH = gql`
+mutation addWish ($wishData: WishInput) {
+  addWish (wishData: $wishData) {
+    _id
+    userName
+    wish {
+      plantId
+      plantImage
+      plantName
+    }
+  }
+}
+`;

@@ -45,9 +45,15 @@ const resolvers = {
             const wish = await Wish.create(args);
             return wish;
         },
-        addTrade: async (parent, args) => {
-            const trade = await Trade.create(args);
-            return trade;
+        addTrade: async (parent, { trade }, context ) => {
+            if (context.user) {
+            const user = await User.findByIdAndUpdate( 
+                { _id: context.user._id},
+                {$addToSet: { trade: trade } 
+                    
+                });
+                return user;
+            }
         },
 
         // In progress

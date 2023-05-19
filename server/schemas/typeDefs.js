@@ -11,15 +11,16 @@ const typeDefs = gql`
     }
 
     type Trade{
-        tradeID: ID!
-        plantName: String!
-        quantity: Int!
+        plantId: String!,
+        plantImage: String!,
+        plantName: String!,
     
     }
 
     type Wish{
-        wishID: ID!
-        plantInterested: String!
+        plantId: String!,
+        plantImage: String!,
+        plantName: String!,
     }
 
     type Auth {
@@ -27,6 +28,18 @@ const typeDefs = gql`
         user: User
     }    
     
+    input TradeInput {
+        plantId: String!,
+        plantImage: String!,
+        plantName: String!,
+    }
+
+    input WishInput {
+        plantId: String!,
+        plantImage: String!,
+        plantName: String!,
+    }
+
     type Query {
         users: [User]
         me: User
@@ -42,11 +55,11 @@ const typeDefs = gql`
             email: String!, 
             password: String!
         ): Auth
-        addWish(wishName: [ID]!): Wish
+        addWish(
+            wishData: WishInput
+            ): Wish
         addTrade(
-            _id: ID!,
-            plantName: String!,
-            quantity: Int!
+            tradeData: TradeInput
         ): Trade
     }
 
