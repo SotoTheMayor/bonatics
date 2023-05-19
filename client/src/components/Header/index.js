@@ -23,8 +23,8 @@ const Header = () => {
                         </>
                     ) : (
                         <>
-                        <li><Link to='login' className='navbar'>Login</Link></li>
-                        <li><Link to='signup' className='navbar'>Create Account</Link></li>
+                        <li><Link to='/login' className='navbar'>Login</Link></li>
+                        <li><Link to='/signup' className='navbar'>Create Account</Link></li>
                         </>
                     )}
             
