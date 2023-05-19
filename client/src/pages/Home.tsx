@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { searchPerenualAPI } from "../utils/PerenualAPI";
 import {ADD_TRADE} from '../utils/mutations';
 import { useMutation } from '@apollo/client';
 import Tile from "./Tile";
+import { LoginContext } from '../App'
 import {
     Container,
     Col,
@@ -56,8 +57,13 @@ const homeTiles = [
 
 const Home = () => {
 
-    const [searchedPlants, setSearchedPlants] = useState([])
+    const loggedIn = useContext(LoginContext);
+    const [searchedPlants, setSearchedPlants] = useState([]);
     const [searchInput, setSearchInput] = useState('');
+
+    useEffect(() => {
+        console.log(loggedIn)
+    })
     
     const handleFormSubmit = async (event: any) => {
         event.preventDefault();
@@ -96,6 +102,9 @@ const Home = () => {
                     plantImage: plant.plantImage,
                     plantName: plant.plantName,
                 }
+            },
+            context: {
+                userName: 'Bonatics'
             }
         });
          }

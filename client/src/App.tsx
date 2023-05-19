@@ -1,4 +1,4 @@
-import React from "react";
+import React, { createContext, useState } from "react";
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { 
@@ -9,7 +9,6 @@ import {
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context'
 
-// import BonaticsContainer from './components/BonaticsContainer';
 import Home from "./pages/Home";
 import Profile from './pages/Profile'
 import Login from './pages/Login'
@@ -35,8 +34,12 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
+export const LoginContext = createContext<any>({})
+
 function App() {
+  const [loggedIn, setLoggedIn] = useState(false)
   return (
+    <LoginContext.Provider value={[loggedIn, setLoggedIn]}>
     <ApolloProvider client={client}>
       <Router>
         <div>
@@ -61,6 +64,7 @@ function App() {
         </div>
       </Router>
     </ApolloProvider>
+    </LoginContext.Provider>
 
   );
 }

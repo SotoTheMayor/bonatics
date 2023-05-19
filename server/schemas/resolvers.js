@@ -65,10 +65,9 @@ const resolvers = {
             if (context.user) {
             const user = await User.findByIdAndUpdate( 
                 { _id: context.user._id},
-                {$addToSet: { trade: trade } },
-                {
-                    new: true
-                }
+                // { userName: context.userName},
+                { $addToSet: { trade: trade } },
+                { new: true }
                     
                 );
                 return user;
@@ -94,23 +93,23 @@ const resolvers = {
             throw new AuthenticationError('You need to be logged in!');
         }
     },
-    removeWish: async (parent, { plantId }, context) => {
-        if (context.user) {
-            const user = await User.findOneAndUpdate(
-                { _id: context.user._id },
-                {
-                    $pull: {
-                        wish: {
-                            plantId
-                        },
+//     removeWish: async (parent, { plantId }, context) => {
+//         if (context.user) {
+//             const user = await User.findOneAndUpdate(
+//                 { _id: context.user._id },
+//                 {
+//                     $pull: {
+//                         wish: {
+//                             plantId
+//                         },
 
-                    }
-                },
-                { new: true }
-            )
-            return user
-        }
-        throw new AuthenticationError('You need to be logged in!');
-    },
+//                     }
+//                 },
+//                 { new: true }
+//             )
+//             return user
+//         }
+//         throw new AuthenticationError('You need to be logged in!');
+//     },
 }
 module.exports = resolvers;

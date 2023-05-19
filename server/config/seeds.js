@@ -4,15 +4,19 @@ const { User } = require('../models');
 db.once('open', async () => {
     await User.deleteMany();
     await User.create({
-        firstName: 'Bonatics'
+        userName: 'Bonatics',
+        email: 'email@email.com',
+        password: 'password'
     })
     await User.create({
-        firstName: 'Jason'
+        userName: 'Jason',
+        email: 'none@none.com',
+        password: 'password'
     })
 
 console.log("**Seeded!!");
-const test = User.findOne({ firstName: 'Bonatics'}) 
-console.log(test.firstName)
+const test = await User.findOne({ userName: 'Bonatics'}) 
+console.log(test)
 
     process.exit();
 })
