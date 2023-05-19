@@ -12,7 +12,7 @@ const Tile = (props: cardProps) => {
           <div className="tile-title">{props.title}</div>
           <img src={props.image} className="tile-image" />
           <div onClick={props.callback} className="tile-url">
-            {/* <button className="site-but">More Info</button> */}
+            <button className="site-but">More Info</button>
           </div>
           {/* <div className="tile-desc">{props.description}</div> */}
         </div>

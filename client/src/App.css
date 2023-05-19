@@ -71,6 +71,10 @@ li {
   
 }
 
+.tile-url {
+  z-index: 100;
+}
+
 .tile {
   display: inline-block;
   color: aliceblue;
