@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { searchTrefleAPI } from "../utils/TrefleAPI";
+import { searchPerenualAPI } from "../utils/PerenualAPI";
 import Tile from "./Tile";
 import {
     Container,
@@ -61,13 +61,10 @@ const Home = () => {
         if (!searchInput) {
             return false;
         }
-    
-    // const handleSearchTrefleAPI = async (token: any, query: any) => {
-
 
         try {
             const token = `sk-k5vt646417c428ab7960`;
-            const response = await searchTrefleAPI(token, searchInput)
+            const response = await searchPerenualAPI(token, searchInput)
             if (!response.ok) {
                 throw new Error('something went wrong!')
             }
@@ -101,18 +98,18 @@ const Home = () => {
                         Submit Search
                     </Button>
                 </Form>
-                {/* <div className="search-cont">
-            <input className="search" placeholder="Search for a plant"/>
-            </div> */}
+
                 <div className="tile-container">
-                    {homeTiles.map((tile) => {
+                    {searchedPlants.slice(0,12).map((plant: any) => {
                         return (
                             <div>
                                 <Tile
-                                    title={tile.title}
-                                    image={tile.image}
-                                    description={tile.description}
-                                    url={tile.url}
+                                    title={plant.plantName}
+                                    image={plant.plantImage}
+                                    // description={tile.description}
+                                    // url={tile.url}
+                                    description='Description'
+                                    url='Url'
                                 ></Tile>
                             </div>
                         )
@@ -121,10 +118,7 @@ const Home = () => {
             </div>
 
 
-            <div>
-                {/* <button onClick={() => { handleSearchTrefleAPI(`sk-k5vt646417c428ab7960`, `pothos`) }}>CLick</button> */}
-
-                {/* <div>{searchedPlants}</div> */}
+            {/* <div>
                 {searchedPlants.map((plant: any) => {
                     return (
                         <>
@@ -133,7 +127,7 @@ const Home = () => {
                         </>
                     );
                 })}
-            </div>
+            </div> */}
 
         </>
     )
