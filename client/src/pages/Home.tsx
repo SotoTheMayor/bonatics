@@ -87,6 +87,7 @@ const Home = () => {
     const [addTrade, {error}] = useMutation(ADD_TRADE)
     const handleTradeInput = async (plant: any) => {
         // event.preventDefault();
+        console.log('we clicked it!')
         try {
         await addTrade({
             variables: {
@@ -99,19 +100,6 @@ const Home = () => {
         });
          }
         catch (err) { console.log(err)}
-        // const tradeToSave = searchedPlants.find((plant: any) => plant.plantId === plantId:)
-        // const token = Auth.loggedIn() ? Auth.getToken() : null;
-        // if (!token) {
-        //     return false;
-        // }
-        // try {
-        //     const { data } = await saveTrade ({
-        //         variables: { plantData: {...tradeToSave}},
-        //     });
-        // }catch (err) {
-        //     console.error(err);
-        // }
-
     
 };
 
