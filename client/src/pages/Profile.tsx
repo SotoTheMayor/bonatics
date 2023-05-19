@@ -4,6 +4,9 @@ const wishlistItems = [
     {
         title: "enter a title here",
     },
+    {
+        title: "enter a title here",
+    },
 ]
 
 export default function Profile() {
