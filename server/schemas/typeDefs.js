@@ -46,21 +46,12 @@ const typeDefs = gql`
     }
 
     type Mutation {
-        addUser(
-            userName: String!,
-            email: String!,
-            password: String!
-        ): Auth 
-        login(
-            email: String!, 
-            password: String!
-        ): Auth
-        addWish(
-            wishData: WishInput
-            ): Wish
-        addTrade(
-            tradeData: TradeInput
-        ): Trade
+        addUser(userName: String!,email: String!,password: String!): Auth 
+        login(email: String!, password: String!): Auth
+        addWish(wishData: WishInput): Wish
+        addTrade(tradeData: TradeInput): Trade
+        removeTrade(plantId: String!): User
+        removeWish(plantId: String!): User
     }
 
 `;

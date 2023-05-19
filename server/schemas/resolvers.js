@@ -13,6 +13,12 @@ const resolvers = {
             }
             throw new AuthenticationError('You need to be logged in!');
         },
+        connectWishTrade: async (parent, { plantId }, context) => {
+            if (context.user) {
+                return User.find({plantId: user.trade.plantId})
+
+            }
+    }
         // trade: async (parent, { _id }) => {
         //     const params = _id ? { _id } : {};
         //     return Trade.find({params});
@@ -41,31 +47,70 @@ const resolvers = {
 
             return { token, user };
         },
-        addWish: async (parent, args) => {
-            const wish = await Wish.create(args);
-            return wish;
+        addWish: async (parent, { wish }, context ) => {
+            if (context.user) {
+            const user = await User.findByIdAndUpdate( 
+                { _id: context.user._id},
+                {$addToSet: { wish: wish } },
+                {
+                    new: true
+                }
+                    
+                );
+                return user;
+            }
+            throw new AuthenticationError('You need to be logged in!');
         },
         addTrade: async (parent, { trade }, context ) => {
             if (context.user) {
             const user = await User.findByIdAndUpdate( 
                 { _id: context.user._id},
-                {$addToSet: { trade: trade } 
+                {$addToSet: { trade: trade } },
+                {
+                    new: true
+                }
                     
-                });
+                );
                 return user;
             }
+            throw new AuthenticationError('You need to be logged in!');
         },
+        removeTrade: async (parent, { plantId }, context) => {
+            if (context.user) {
+                const user = await User.findOneAndUpdate(
+                    { _id: context.user._id },
+                    {
+                        $pull: {
+                            trade: {
+                                plantId
+                            },
 
-        // In progress
-
-        // deleteTrade: async (parent, { userID, plantName, traderID }) => {
-        //     return Trade.findOneAndUpdate(
-        //         { _id: userID },
-        //         { $pull: { comments: { _id: commentId } } },
-        //         { new: true }
-        //       );
-        // },
+                        }
+                    },
+                    { new: true }
+                )
+                return user
+            }
+            throw new AuthenticationError('You need to be logged in!');
+        }
     },
-};
+    removeWish: async (parent, { plantId }, context) => {
+        if (context.user) {
+            const user = await User.findOneAndUpdate(
+                { _id: context.user._id },
+                {
+                    $pull: {
+                        wish: {
+                            plantId
+                        },
 
+                    }
+                },
+                { new: true }
+            )
+            return user
+        }
+        throw new AuthenticationError('You need to be logged in!');
+    },
+}
 module.exports = resolvers;
