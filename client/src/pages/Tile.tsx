@@ -3,7 +3,7 @@ interface cardProps {
 title: string,
 image: string,
 description: string,
-url: string
+callback: any,
 }
 const Tile = (props: cardProps) => {
   return (
@@ -11,9 +11,9 @@ const Tile = (props: cardProps) => {
         <div className="tile">
           <div className="tile-title">{props.title}</div>
           <img src={props.image} className="tile-image" />
-          <a href={props.url} className="tile-url">
+          <div onClick={props.callback} className="tile-url">
             {/* <button className="site-but">More Info</button> */}
-          </a>
+          </div>
           {/* <div className="tile-desc">{props.description}</div> */}
         </div>
       </div>

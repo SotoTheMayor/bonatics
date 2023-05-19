@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { searchPerenualAPI } from "../utils/PerenualAPI";
-import {SAVE_TRADE} from '../utils/mutations';
+import {ADD_TRADE} from '../utils/mutations';
 import { useMutation } from '@apollo/client';
 import Tile from "./Tile";
 import {
@@ -58,6 +58,7 @@ const Home = () => {
 
     const [searchedPlants, setSearchedPlants] = useState([])
     const [searchInput, setSearchInput] = useState('');
+    
     const handleFormSubmit = async (event: any) => {
         event.preventDefault();
         if (!searchInput) {
@@ -82,20 +83,34 @@ const Home = () => {
             console.error(err)
         }
     }
-const [addTrade, {error}] = useMutation(SAVE_TRADE)
-    const handleTradeInput = async (tradeData: any) => {
-        const tradeToSave = searchedPlants.find((plant) => plant.plantId === plantId:)
+
+    const [addTrade, {error}] = useMutation(ADD_TRADE)
+    const handleTradeInput = async (plant: any) => {
+        // event.preventDefault();
+        try {
+        await addTrade({
+            variables: {
+                tradeData: {
+                    plantId: plant.plantId,
+                    plantImage: plant.plantImage,
+                    plantName: plant.plantName,
+                }
+            }
+        });
+         }
+        catch (err) { console.log(err)}
+        // const tradeToSave = searchedPlants.find((plant: any) => plant.plantId === plantId:)
         // const token = Auth.loggedIn() ? Auth.getToken() : null;
         // if (!token) {
         //     return false;
         // }
-        try {
-            const { data } = await addTrade ({
-                variables: { plantData: {...tradeToSave}},
-            });
-        }catch (err) {
-            console.error(err);
-        }
+        // try {
+        //     const { data } = await saveTrade ({
+        //         variables: { plantData: {...tradeToSave}},
+        //     });
+        // }catch (err) {
+        //     console.error(err);
+        // }
 
     
 };
@@ -123,12 +138,13 @@ const [addTrade, {error}] = useMutation(SAVE_TRADE)
                         return (
                             <div>
                                 <Tile
+                                    key={plant.plantId}
                                     title={plant.plantName}
                                     image={plant.plantImage}
                                     // description={tile.description}
                                     // url={tile.url}
                                     description='Description'
-                                    url={handleTradeInput}
+                                    callback={() => handleTradeInput(plant)}
                                 ></Tile>
                             </div>
                         )
