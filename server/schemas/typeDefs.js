@@ -11,6 +11,7 @@ const typeDefs = gql`
     }
 
     type Trade{
+        _id: ID
         plantId: String!,
         plantImage: String!,
         plantName: String!,
@@ -18,6 +19,7 @@ const typeDefs = gql`
     }
 
     type Wish{
+        _id: ID
         plantId: String!,
         plantImage: String!,
         plantName: String!,

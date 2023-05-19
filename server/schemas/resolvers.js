@@ -61,15 +61,20 @@ const resolvers = {
             }
             throw new AuthenticationError('You need to be logged in!');
         },
-        addTrade: async (parent, { trade }, context ) => {
+        addTrade: async (parent, { tradeData }, context ) => {
+            console.log(context.user);
+            console.log(tradeData+ 'trade');
+            
             if (context.user) {
             const user = await User.findByIdAndUpdate( 
                 { _id: context.user._id},
-                // { userName: context.userName},
-                { $addToSet: { trade: trade } },
-                { new: true }
-                    
-                );
+
+                {$addToSet: { trade: tradeData } },
+                {
+                    new: true
+                }
+
+            );
                 return user;
             }
             throw new AuthenticationError('You need to be logged in!');
@@ -93,23 +98,24 @@ const resolvers = {
             throw new AuthenticationError('You need to be logged in!');
         }
     },
-//     removeWish: async (parent, { plantId }, context) => {
-//         if (context.user) {
-//             const user = await User.findOneAndUpdate(
-//                 { _id: context.user._id },
-//                 {
-//                     $pull: {
-//                         wish: {
-//                             plantId
-//                         },
 
-//                     }
-//                 },
-//                 { new: true }
-//             )
-//             return user
-//         }
-//         throw new AuthenticationError('You need to be logged in!');
-//     },
+    // removeWish: async (parent, { plantId }, context) => {
+    //     if (context.user) {
+    //         const user = await User.findOneAndUpdate(
+    //             { _id: context.user._id },
+    //             {
+    //                 $pull: {
+    //                     wish: {
+    //                         plantId
+    //                     },
+
+    //                 }
+    //             },
+    //             { new: true }
+    //         )
+    //         return user
+    //     }
+    //     throw new AuthenticationError('You need to be logged in!');
+    // },
 }
 module.exports = resolvers;
