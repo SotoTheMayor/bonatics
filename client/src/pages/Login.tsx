@@ -19,6 +19,7 @@ const Login = () => {
     };
   
     const handleFormSubmit = async (event: any) => {
+      event.preventDefault();
       console.log(formState);
       try {
         const { data } = await login({
@@ -35,26 +36,17 @@ const Login = () => {
         password: '',
       });
     };
-
-    // const handleError= async (event: any) => {
-    //     // {error ? (
-    //     //     <div>
-    //     //       <p className="error-text">The provided credentials are incorrect</p>
-    //     //     </div>
-    //     //   ) : null}
-      
-    // }
   
     return (
-      <main className="flex-row justify-content-center mb-4">
-        <div className="col-4 col-lg-4">
-          <div className="card">
-            <h4 className="card-header bg-green-400 text-success p-2 text-center">Login</h4>
+      <main className="container-fluid mb-4">
+        <div className="justify-content-center bg-primary">
+          <div className="card align-items-center bg-success">
+            <h4 className="card-header text-light bg-success mb-4">Login</h4>
             <div className="justify-content-center">
             
                 <form onSubmit={handleFormSubmit}>
                   <input
-                    className="form-input"
+                    className="form-input col-8 mb-4"
                     placeholder="email"
                     name="email"
                     type="email"
@@ -62,7 +54,7 @@ const Login = () => {
                     onChange={handleChange}
                   />
                   <input
-                    className="form-input"
+                    className="form-input col-8"
                     placeholder="password"
                     name="password"
                     type="password"
@@ -73,7 +65,6 @@ const Login = () => {
                     className="btn btn-block btn-info"
                     style={{ cursor: 'pointer' }}
                     type="submit"
-                    // onChange={handleError}
                   >
                     Submit
                   </button>
