@@ -97,15 +97,23 @@ const Home = () => {
         try {
         await addTrade({
             variables: {
-                tradeData: {
+                _id: '',
+                email: '',
+                userName: '',
+                trade: {
                     plantId: plant.plantId,
                     plantImage: plant.plantImage,
                     plantName: plant.plantName,
                 }
+                // tradeData: {
+                //     plantId: plant.plantId,
+                //     plantImage: plant.plantImage,
+                //     plantName: plant.plantName,
+                // }
             },
-            context: {
-                userName: 'Bonatics'
-            }
+            // context: {
+            //     userName: 'Bonatics'
+            // }
         });
          }
         catch (err) { console.log(err)}
