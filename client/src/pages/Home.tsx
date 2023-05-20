@@ -12,6 +12,7 @@ import {
     Card,
     Row
 } from 'react-bootstrap';
+import { QUERY_ME, QUERY_USERS } from "../utils/queries";
 
 const homeTiles = [
     {
@@ -90,7 +91,20 @@ const Home = () => {
         }
     }
 
-    const [addTrade, {error}] = useMutation(ADD_TRADE)
+    const [addTrade, {error}] = useMutation(ADD_TRADE, {
+        update(cache,{ data: { addTrade } }) {
+            // try {
+                const { me }:any = cache.readQuery({ query: QUERY_ME });
+
+                cache.writeQuery({
+                    query: QUERY_ME,
+                    data: { me: { ...me, trade: [...me.trade, addTrade] }}
+                })
+        //     } catch (e) {
+        //     console.error(e)
+        // }
+        }
+    })
     const handleTradeInput = async (plant: any) => {
         // event.preventDefault();
         console.log('we clicked it!')
