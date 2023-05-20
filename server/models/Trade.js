@@ -7,6 +7,7 @@ const tradeSchema = new Schema({
     },
     plantImage: {
       type: String,
+      required: false,
     },
     plantName: {
       type: String,
