@@ -58,11 +58,7 @@ mutation addTrade ($tradeData: TradeInput) {
       plantImage
       plantName
     }
-    wish {
-      plantId
-      plantImage
-      plantName
-    }
+   
   }
 }
 `;
@@ -87,36 +83,36 @@ mutation addWish ($wishData: WishInput) {
 }
 `;
 
-export const REMOVE_TRADE = gql `
-_id
-email
-userName
-trade {
-  plantId
-  plantImage
-  plantName
-}
-wish {
-  plantId
-  plantImage
-  plantName
-}
-}
-}`;
+// export const REMOVE_TRADE = gql `
+// _id
+// email
+// userName
+// trade {
+//   plantId
+//   plantImage
+//   plantName
+// }
+// wish {
+//   plantId
+//   plantImage
+//   plantName
+// }
+// }
+// }`;
 
-export const REMOVE_WISH = gql `
-_id
-email
-userName
-trade {
-  plantId
-  plantImage
-  plantName
-}
-wish {
-  plantId
-  plantImage
-  plantName
-}
-}
-}`;
+// export const REMOVE_WISH = gql `
+// _id
+// email
+// userName
+// trade {
+//   plantId
+//   plantImage
+//   plantName
+// }
+// wish {
+//   plantId
+//   plantImage
+//   plantName
+// }
+// }
+// }`;
