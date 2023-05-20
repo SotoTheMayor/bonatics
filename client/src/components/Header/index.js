@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../images/logo-no-bg.png'
+import { useQuery } from '@apollo/client';
+import { QUERY_ME } from '../../utils/queries'
 
 import Auth from '../../utils/auth';
 
@@ -8,6 +10,10 @@ const Header = () => {
     const logout = (event) => {
         Auth.logout();
     };
+
+// pull in logged in user's user name
+const { loading, data } = useQuery(QUERY_ME);
+
     return (
         <header>
           <ul>
@@ -16,7 +22,7 @@ const Header = () => {
             {Auth.loggedIn() ? (
                         <>
                             <Link to='/myProfile' className='navbar'>
-                                <li>{Auth.getProfile().data.username}'s Profile</li>
+                                <li>{}'s Profile</li>
                             </Link>
                             <button onClick={logout}>Logout</button>
                         </>
