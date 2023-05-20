@@ -13,12 +13,13 @@ const resolvers = {
             }
             throw new AuthenticationError('You need to be logged in!');
         },
-        connectWishTrade: async (parent, { plantId }, context) => {
+        wishTrade: async (parent, { plantId }, context) => {
             if (context.user) {
-                return User.find({plantId: user.trade.plantId})
+                return User.find({
+                })
 
             }
-    }
+        },
         // trade: async (parent, { _id }) => {
         //     const params = _id ? { _id } : {};
         //     return Trade.find({params});
