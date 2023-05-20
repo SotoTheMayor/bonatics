@@ -97,9 +97,9 @@ const Home = () => {
         try {
         await addTrade({
             variables: {
-                _id: '',
-                email: '',
-                userName: '',
+                // _id: "6468d70e1579099272e5f712",
+                email: "quickfire25@yahoo.com",
+                userName: "jason johnson",
                 trade: {
                     plantId: plant.plantId,
                     plantImage: plant.plantImage,
