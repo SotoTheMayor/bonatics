@@ -13,7 +13,7 @@ const wishSchema = new Schema({
     },
     plantImage: {
       type: String,
-      required: true,
+      required: false,
     },
     // wishID: {
     //     type: Schema.Types.ObjectId,
