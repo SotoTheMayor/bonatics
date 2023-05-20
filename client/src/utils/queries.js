@@ -2,34 +2,40 @@ import { gql } from '@apollo/client';
 
 export const QUERY_ME = gql`
 query me {
-    me {
-      _id
-      userName
-      email
-      wish {
-        plantInterested
-        wishID
-      }
-      trade {
-        tradeID
-        plantName
-        quantity
-      }
+  me {
+    _id
+    email
+    userName
+    trade {
+      plantId
+      plantImage
+      plantName
+    }
+    wish {
+      plantId
+      plantImage
+      plantName
     }
   }
+}
 `;
 
 export const QUERY_USERS = gql`
 query users {
-    users {
-      _id
-      userName
-      email
-      trade {
-        tradeID
-        plantName
-        quantity
-      }
+  users {
+    _id
+    email
+    userName
+    trade {
+      plantId
+      plantImage
+      plantName
+    }
+    wish {
+      plantId
+      plantImage
+      plantName
     }
   }
+}
 `;

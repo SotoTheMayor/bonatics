@@ -15,10 +15,10 @@ const wishSchema = new Schema({
       type: String,
       required: true,
     },
-    wishID: {
-        type: Schema.Types.ObjectId,
-        default: () => new Types.ObjectId(),
-    },
+    // wishID: {
+    //     type: Schema.Types.ObjectId,
+    //     default: () => new Types.ObjectId(),
+    // },
   });
   
   module.exports =  wishSchema ;

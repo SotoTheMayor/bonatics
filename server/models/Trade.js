@@ -12,10 +12,10 @@ const tradeSchema = new Schema({
       type: String,
       required: true,
     },
-    tradeID: {
-      type: Schema.Types.ObjectId,
-      default: () => new Types.ObjectId(),
-  },
+  //   tradeID: {
+  //     type: Schema.Types.ObjectId,
+  //     default: () => new Types.ObjectId(),
+  // },
   });
 
   module.exports =  tradeSchema ;
