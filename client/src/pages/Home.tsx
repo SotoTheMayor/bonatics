@@ -93,16 +93,22 @@ const Home = () => {
 
     const [addTrade, {error}] = useMutation(ADD_TRADE, {
         update(cache,{ data: { addTrade } }) {
-            // try {
-                const { me }:any = cache.readQuery({ query: QUERY_ME });
-
-                cache.writeQuery({
-                    query: QUERY_ME,
-                    data: { me: { ...me, trade: [...me.trade, addTrade] }}
-                })
+        //     try {
+        //         const trade:any = cache.readQuery({ query: QUERY_USERS });
+        //         cache.writeQuery({
+        //           query: QUERY_USERS,
+        //           data: { users: { trade: [addTrade, trade] } }
+        //         })
         //     } catch (e) {
         //     console.error(e)
         // }
+                const me:any = cache.readQuery({ query: QUERY_ME });
+
+                cache.writeQuery({
+                    query: QUERY_ME,
+                    data: { me: [...me.trade, addTrade] }
+                })
+
         }
     })
     const handleTradeInput = async (plant: any) => {
@@ -111,9 +117,7 @@ const Home = () => {
         try {
         await addTrade({
             variables: {
-                // _id: "6468d70e1579099272e5f712",
-                email: "quickfire25@yahoo.com",
-                userName: "jason johnson",
+                
                 trade: {
                     plantId: plant.plantId,
                     plantImage: plant.plantImage,
