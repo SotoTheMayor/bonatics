@@ -113,7 +113,7 @@ const Home = () => {
                                     // url={tile.url}
                                     description='Description'
                                     callbackTrade={() => handleTradeInput(plant)}
-                                    callbackWish={() => handleWishInput(plant)} //need to make wish funtion
+                                    callbackWish={() => handleWishInput(plant)}
                                 ></Tile>
                         )
                     })}
