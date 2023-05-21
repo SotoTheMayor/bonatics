@@ -19,6 +19,7 @@ const Login = () => {
     };
   
     const handleFormSubmit = async (event: any) => {
+      event.preventDefault();
       console.log(formState);
       try {
         const { data } = await login({
@@ -35,26 +36,21 @@ const Login = () => {
         password: '',
       });
     };
-
-    // const handleError= async (event: any) => {
-    //     // {error ? (
-    //     //     <div>
-    //     //       <p className="error-text">The provided credentials are incorrect</p>
-    //     //     </div>
-    //     //   ) : null}
-      
-    // }
   
     return (
-      <main className="flex-row justify-content-center mb-4">
-        <div className="col-4 col-lg-4">
-          <div className="card">
-            <h4 className="card-header bg-green-400 text-success p-2 text-center">Login</h4>
+      <main className="row justify-content-center align-items-center mb-4">
+          <div className="card bg-light col-4 justify-content-center">
+            <h4 className="card-header bg-success text-light text-center mb-4">Login</h4>
             <div className="justify-content-center">
-            
+                {data ? (
+                            <p>
+                                Success!
+                                <Link to="/profile">Your Profile</Link>
+                            </p>
+                        ) : (
                 <form onSubmit={handleFormSubmit}>
                   <input
-                    className="form-input"
+                    className="form-input col-12 p-2 mb-4"
                     placeholder="email"
                     name="email"
                     type="email"
@@ -62,7 +58,7 @@ const Login = () => {
                     onChange={handleChange}
                   />
                   <input
-                    className="form-input"
+                    className="form-input col-12 p-2 mb-4"
                     placeholder="password"
                     name="password"
                     type="password"
@@ -70,15 +66,14 @@ const Login = () => {
                     onChange={handleChange}
                   />
                   <button
-                    className="btn btn-block btn-info"
+                    className="btn btn-outline-success text-green p-2"
                     style={{ cursor: 'pointer' }}
                     type="submit"
-                    // onChange={handleError}
                   >
                     Submit
                   </button>
                 </form>
-                 
+    )}
               {error && (
                 <div className="my-3 p-3 bg-danger text-white">
                   {error.message}
@@ -86,10 +81,8 @@ const Login = () => {
               )}
             </div>
           </div>
-        </div>
       </main>
-    );
-  };
+    )};
   
   export default Login;
   
