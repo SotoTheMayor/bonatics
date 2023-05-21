@@ -1,8 +1,5 @@
 import React from "react";
 import Wishlist from '../components/Profile/Wishlist';
-import { useQuery } from "@apollo/client";
-import { QUERY_ME } from "../utils/queries";
-
 const wishlistItems = [
     {
         title: "enter a title here",
@@ -12,16 +9,11 @@ const wishlistItems = [
     },
 ]
 
-
 export default function Profile() {
-    // pull in user's User Name
-    const { loading, data } = useQuery(QUERY_ME);
-    const user = data?.me.userName || '(No User Name Found)';
-
     return (
         <div className="profile-cont">
             <div className="profile">
-            <div className="profile-header">{user}'s Profile</div>
+            <div className="profile-header">"User" profile</div>
                 <div className="prof-1">
             <div className='OOT-cont'>
                 <div className="prof-sub-header">Open To Trade</div>
