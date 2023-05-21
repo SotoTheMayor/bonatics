@@ -11,14 +11,14 @@ const typeDefs = gql`
     }
 
     type Trade{
-        plantId: String!
+        plantId: Int!
         plantImage: String
         plantName: String!
     
     }
 
     type Wish{
-        plantId: String!
+        plantId: Int!
         plantImage: String
         plantName: String!
     }
@@ -29,13 +29,13 @@ const typeDefs = gql`
     }    
     
     input TradeInput {
-        plantId: String!
+        plantId: Int!
         plantImage: String
         plantName: String!
     }
 
     input WishInput {
-        plantId: String!
+        plantId: Int!
         plantImage: String
         plantName: String!
     }

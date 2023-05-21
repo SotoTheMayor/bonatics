@@ -8,7 +8,7 @@ const wishSchema = new Schema({
       required: true,
     },
     plantId: {
-      type: String,
+      type: Number,
       required: true,
     },
     plantImage: {

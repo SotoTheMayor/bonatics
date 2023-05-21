@@ -2,7 +2,7 @@ const { Schema, Types } = require('mongoose');
 
 const tradeSchema = new Schema({
     plantId: {
-      type: String,
+      type: Number,
       required: true,
     },
     plantImage: {
