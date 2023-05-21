@@ -44,9 +44,10 @@ const Signup = () => {
     };
 
     return (
-        <main className="row justify-content-center align-items-center mb-4">
-                <div className="card bg-light col-4 justify-content-center">
-                    <h4 className="card-header bg-success text-light text-center mb-4">Sign Up</h4>
+        <main className="flex-row justify-center mb-4">
+            <div className="col-12 col-lg-10">
+                <div className="card">
+                    <h4 className="card-header bg-dark text-light p-2">Sign Up</h4>
                     <div className="card-body">
                         {data ? (
                             <p>
@@ -56,7 +57,7 @@ const Signup = () => {
                         ) : (
                             <form onSubmit={handleFormSubmit}>
                                 <input
-                                    className="form-input col-12 p-2 mb-4"
+                                    className="form-input"
                                     placeholder="Your username"
                                     name="userName"
                                     type="text"
@@ -64,7 +65,7 @@ const Signup = () => {
                                     onChange={handleChange}
                                 />
                                 <input
-                                    className="form-input col-12 p-2 mb-4"
+                                    className="form-input"
                                     placeholder="Your email"
                                     name="email"
                                     type="email"
@@ -72,7 +73,7 @@ const Signup = () => {
                                     onChange={handleChange}
                                 />
                                 <input
-                                    className="form-input col-12 p-2 mb-4"
+                                    className="form-input"
                                     placeholder="******"
                                     name="password"
                                     type="password"
@@ -80,7 +81,7 @@ const Signup = () => {
                                     onChange={handleChange}
                                 />
                                 <button
-                                    className="btn btn-outline-success text-green p-2"
+                                    className="btn btn-block btn-info"
                                     style={{ cursor: 'pointer' }}
                                     type="submit"
                                 >
@@ -96,6 +97,7 @@ const Signup = () => {
                         )}
                     </div>
                 </div>
+            </div>
         </main>
     );
 };

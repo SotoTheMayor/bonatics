@@ -38,19 +38,15 @@ const Login = () => {
     };
   
     return (
-      <main className="row justify-content-center align-items-center mb-4">
-          <div className="card bg-light col-4 justify-content-center">
-            <h4 className="card-header bg-success text-light text-center mb-4">Login</h4>
+      <main className="container-fluid mb-4">
+        <div className="justify-content-center bg-primary">
+          <div className="card align-items-center bg-success">
+            <h4 className="card-header text-light bg-success mb-4">Login</h4>
             <div className="justify-content-center">
-                {data ? (
-                            <p>
-                                Success!
-                                <Link to="/profile">Your Profile</Link>
-                            </p>
-                        ) : (
+            
                 <form onSubmit={handleFormSubmit}>
                   <input
-                    className="form-input col-12 p-2 mb-4"
+                    className="form-input col-8 mb-4"
                     placeholder="email"
                     name="email"
                     type="email"
@@ -58,7 +54,7 @@ const Login = () => {
                     onChange={handleChange}
                   />
                   <input
-                    className="form-input col-12 p-2 mb-4"
+                    className="form-input col-8"
                     placeholder="password"
                     name="password"
                     type="password"
@@ -66,14 +62,14 @@ const Login = () => {
                     onChange={handleChange}
                   />
                   <button
-                    className="btn btn-outline-success text-green p-2"
+                    className="btn btn-block btn-info"
                     style={{ cursor: 'pointer' }}
                     type="submit"
                   >
                     Submit
                   </button>
                 </form>
-    )}
+                 
               {error && (
                 <div className="my-3 p-3 bg-danger text-white">
                   {error.message}
@@ -81,8 +77,10 @@ const Login = () => {
               )}
             </div>
           </div>
+        </div>
       </main>
-    )};
+    );
+  };
   
   export default Login;
   
