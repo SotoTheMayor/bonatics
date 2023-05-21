@@ -77,7 +77,7 @@ li {
 }
 
 .tile-url {
-  z-index: 100;
+  padding-left: 100%;
 }
 
 .tile {
