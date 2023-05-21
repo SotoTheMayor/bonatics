@@ -29,6 +29,12 @@ header {
 footer {
   position:relative;
   bottom:0px;
+  text-align: center;
+  color: white;
+}
+
+footer a {
+  padding: 10px;
 }
 
 .navbar-cont {
