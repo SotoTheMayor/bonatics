@@ -1,9 +1,9 @@
 import React from "react";
-interface tradelistProps {
+interface wishlistProps {
     title: string
 }
 
-const Tradelist = (props: tradelistProps) => {
+const Wishlist = (props: wishlistProps) => {
     return (
         <div className="wl-container">
         <span className="wl-item">{props.title}</span>
@@ -12,4 +12,4 @@ const Tradelist = (props: tradelistProps) => {
     );
 };
 
-export default Tradelist
+export default Wishlist

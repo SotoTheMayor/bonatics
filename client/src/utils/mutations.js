@@ -67,25 +67,25 @@ mutation addTrade($tradeData: TradeInput) {
 }
 `;
 
-// export const ADD_WISH = gql`
-// mutation addWish ($wishData: WishInput) {
-//   addWish (wishData: $wishData) {
-//     _id
-//     email
-//     userName
-//     trade {
-//       plantId
-//       plantImage
-//       plantName
-//     }
-//     wish {
-//       plantId
-//       plantImage
-//       plantName
-//     }
-//   }
-// }
-// `;
+export const ADD_WISH = gql`
+mutation addWish ($wishData: WishInput) {
+  addWish (wishData: $wishData) {
+    _id
+    email
+    userName
+    trade {
+      plantId
+      plantImage
+      plantName
+    }
+    wish {
+      plantId
+      plantImage
+      plantName
+    }
+  }
+}
+`;
 
 // export const REMOVE_TRADE = gql `
 // mutation Mutation($plantId: String!) {

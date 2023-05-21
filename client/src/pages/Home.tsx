@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import { searchPerenualAPI } from "../utils/PerenualAPI";
-import {ADD_TRADE} from '../utils/mutations';
+import {ADD_TRADE, ADD_WISH} from '../utils/mutations';
 import { useMutation } from '@apollo/client';
 import Tile from "./Tile";
 import { LoginContext } from '../App'
@@ -12,49 +12,6 @@ import {
     Card,
     Row
 } from 'react-bootstrap';
-// import { QUERY_ME, QUERY_USERS } from "../utils/queries";
-
-const homeTiles = [
-    {
-        title: "HOUSE PLANTS",
-        image: "require (an image from the DB)",
-        description: "maybe a description?",
-        url: "route to the page",
-    },
-    {
-        title: "TROPICAL PLANTS",
-        image: "require (an image from the DB)",
-        description: "maybe a description?",
-        url: "route to the page",
-    },
-    {
-        title: "TREES",
-        image: "require (an image from the DB)",
-        description: "maybe a description?",
-        url: "route to the page",
-    },
-    {
-        title: "POPULAR",
-        image: "require (an image from the DB)",
-        description: "maybe a description?",
-        url: "route to the page",
-    },
-    {
-        title: "MORE PLANTS",
-        image: "require (an image from the DB)",
-        description: "maybe a description?",
-        url: "route to the page",
-    },
-    {
-        title: "EXTRA",
-        image: "require (an image from the DB)",
-        description: "maybe a description?",
-        url: "route to the page",
-    },
-]
-
-
-
 
 const Home = () => {
 
@@ -90,53 +47,40 @@ const Home = () => {
             console.error(err)
         }
     }
-    const [addTrade, {error}] = useMutation(ADD_TRADE)
-    // const [addTrade, {error}] = useMutation(ADD_TRADE, {
-    //     update(cache,{ data: { addTrade } }) {
-    //     //     try {
-    //     //         const trade:any = cache.readQuery({ query: QUERY_USERS });
-    //     //         cache.writeQuery({
-    //     //           query: QUERY_USERS,
-    //     //           data: { users: { trade: [addTrade, trade] } }
-    //     //         })
-    //     //     } catch (e) {
-    //     //     console.error(e)
-    //     // }
-    //             const me:any = cache.readQuery({ query: QUERY_ME });
 
-    //             cache.writeQuery({
-    //                 query: QUERY_ME,
-    //                 data: { me: [me.trade, addTrade] }
-    //             })
-
-    //     }
-    // })
+    const [addTrade, {error: tradeError}] = useMutation(ADD_TRADE)
     const handleTradeInput = async (plant: any) => {
-        // event.preventDefault();
         console.log(plant)
         try {
         await addTrade({
             variables: {
-                
                 tradeData: {
                     plantId: plant.plantId,
                     plantImage: plant.plantImage,
                     plantName: plant.plantName,
                 }
-                // tradeData: {
-                //     plantId: plant.plantId,
-                //     plantImage: plant.plantImage,
-                //     plantName: plant.plantName,
-                // }
             },
-            // context: {
-            //     userName: 'Bonatics'
-            // }
         });
          }
         catch (err) { console.log(err)}
-    
-};
+    };
+
+    const [addWish, {error: wishError}] = useMutation(ADD_WISH)
+    const handleWishInput = async (plant: any) => {
+        console.log(plant)
+        try {
+        await addWish({
+            variables: {
+                wishData: {
+                    plantId: plant.plantId,
+                    plantImage: plant.plantImage,
+                    plantName: plant.plantName,
+                }
+            },
+        });
+        }
+        catch (err) { console.log(err)}
+    };
 
     return (
         <>
@@ -161,7 +105,6 @@ const Home = () => {
                 <div className="tile-container">
                     {searchedPlants.slice(0,12).map((plant: any) => {
                         return (
-                            <div>
                                 <Tile
                                     key={plant.plantId}
                                     title={plant.plantName}
@@ -170,26 +113,12 @@ const Home = () => {
                                     // url={tile.url}
                                     description='Description'
                                     callbackTrade={() => handleTradeInput(plant)}
-                                    callbackWish={() => handleTradeInput(plant)} //need to make wish funtion
+                                    callbackWish={() => handleWishInput(plant)} //need to make wish funtion
                                 ></Tile>
-                            </div>
                         )
                     })}
                 </div>
             </div>
-
-
-            {/* <div>
-                {searchedPlants.map((plant: any) => {
-                    return (
-                        <>
-                            <div>{plant.plantName}</div>
-                            <img src={plant.plantImage} alt="plant" key={plant.plantId}></img>
-                        </>
-                    );
-                })}
-            </div> */}
-
         </>
     )
 }
