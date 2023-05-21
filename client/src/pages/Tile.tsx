@@ -9,7 +9,7 @@ callbackWish: any
 const Tile = (props: cardProps) => {
   return (
       <div className="tile-cont">
-          <div onClick={props.callback} className="tile-url">
+          {/* <div onClick={props.callback} className="tile-url"> */}
         <div className="tile">
           <div className="tile-title">{props.title}</div>
           <img src={props.image} className="tile-image" alt={props.title} />
@@ -18,11 +18,11 @@ const Tile = (props: cardProps) => {
           </div>
           <div onClick={props.callbackWish} className="tile-url">
             <button className="site-but">Add Wish</button>
-
+          </div>
           </div>
           {/* <div className="tile-desc">{props.description}</div> */}
         </div>
-      </div>
+      // </div>
   );
 };
 
