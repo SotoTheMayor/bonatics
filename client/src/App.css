@@ -23,11 +23,16 @@ min-height: 100vh;
 header {
   height: fit-content;
   background-color: rgba(223, 255, 202, 0.7);
+  margin-bottom: 0px !important;
 }
 
 footer {
   position:relative;
   bottom:0px;
+}
+
+.navbar-cont {
+  margin-bottom: 0px !important;
 }
 
 .navbar {
@@ -121,12 +126,17 @@ input{
   text-indent: 10px;
 }
 
+.container-fluid {
+  padding: 0px !important;
+}
 
 .search-cont {
-  height: 40px;
+  background-color: rgba(223, 255, 202, 0.7);
+  height: 70px;
   width: 100%;
-padding-left: 20px;
-padding-right: 20px;
+  padding-top:10px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .search {
@@ -139,14 +149,27 @@ padding-right: 20px;
   border-width: 1px !important;
 }
 
-.search-button{
-  border-color:   #50a060 !important;
-  background-color:  #366e41 !important;
+.login-input {
+
+  margin-left: 7%;
+  margin-right: 7%;
+  border-radius: 0px !important;
+  width: 85% !important;
+  height: 40px !important;
+  border-style: solid;
+  border-color: #50a060 !important;
+  border-width: 1px !important;
+  
+}
+
+.search-button, .login-button{
+  border-color:  #366e41 !important;
+  background-color:  #50a060 !important;
   vertical-align:top !important;
   border-radius: 0px !important;
   display: inline;
   height: 40px;
-  width: 15%
+  width: 15%;
 }
 
 .profile {
@@ -164,7 +187,7 @@ padding-right: 20px;
   display: flex;
 }
 
-.profile-cont {
+.profile-cont, .login-cont {
   display: flex;
   padding-bottom: 15px;
   background-color: rgba(223, 255, 202, 0.7);
@@ -173,11 +196,32 @@ padding-right: 20px;
   overflow:auto;
 }
 
+.login-cont {
+background-color: transparent;
+  width: 100%;
+}
+
+.login-card {
+  border-style: none !important;
+  background-color: rgba(223, 255, 202, 0.7) !important;
+  width: 30% !important;
+  height: 50% !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  box-shadow: 5px 3px 20px 5px rgba(0, 0, 0, 0.2);
+}
+
+.login-header {
+  width:100% !important;
+  background-color: #50a060 !important;
+  color: rgba(223, 255, 202, 0.7) !important;
+}
+
 .OOT-cont, .wishlist-cont  {
   display:flex;
   flex-direction: column;
   width: 50%;
-  height: 95%;
+  height: 100%;
   border-style: solid;
   border-color: #50a060;
   margin:0px;
@@ -186,7 +230,7 @@ padding-right: 20px;
 
 .trade-cont {
   width: 50%;
-  height: 95%;
+  height: 100%;
   border-style: solid;
   border-color: #50a060;
   float:right;
@@ -198,6 +242,7 @@ padding-right: 20px;
   color: #50a060;;
   font-size: 30px;
   font-weight: bolder;
+  margin-left: 15px;
 }
 
 .prof-sub-header {
@@ -205,6 +250,8 @@ padding-right: 20px;
   color: rgba(223, 255, 202, 0.7);
   font-size: 24px;
   font-weight: bolder;
+  padding-left:15px;
+  padding-bottom: 5px;
 }
 
 .wl-container {

@@ -17,7 +17,7 @@ const user = data?.me.userName || '(No User Name Found)';
 
   return (
     <header>
-      <ul className="">
+      <ul className="navbar-cont">
         <li>
           <Link to="/" className="navbar">
             Home

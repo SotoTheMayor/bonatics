@@ -38,9 +38,9 @@ const Login = () => {
     };
   
     return (
-      <main className="row justify-content-center align-items-center mb-4">
-          <div className="card bg-light col-4 justify-content-center">
-            <h4 className="card-header bg-success text-light text-center mb-4">Login</h4>
+      <main className="row justify-content-center align-items-center mb-4 login-cont">
+          <div className="card col-4 login-card">
+            <h4 className="card-header text-center mb-4 login-header">Login</h4>
             <div className="justify-content-center">
                 {data ? (
                             <p>
@@ -50,7 +50,7 @@ const Login = () => {
                         ) : (
                 <form onSubmit={handleFormSubmit}>
                   <input
-                    className="form-input col-12 p-2 mb-4"
+                    className="form-input col-12 p-2 mb-4 login-input"
                     placeholder="email"
                     name="email"
                     type="email"
@@ -58,7 +58,7 @@ const Login = () => {
                     onChange={handleChange}
                   />
                   <input
-                    className="form-input col-12 p-2 mb-4"
+                    className="form-input col-12 p-2 mb-4 login-input"
                     placeholder="password"
                     name="password"
                     type="password"
@@ -66,7 +66,7 @@ const Login = () => {
                     onChange={handleChange}
                   />
                   <button
-                    className="btn btn-outline-success text-green p-2"
+                    className="p-2 login-button"
                     style={{ cursor: 'pointer' }}
                     type="submit"
                   >
