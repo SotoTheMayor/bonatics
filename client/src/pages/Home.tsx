@@ -12,7 +12,7 @@ import {
     Card,
     Row
 } from 'react-bootstrap';
-import { QUERY_ME, QUERY_USERS } from "../utils/queries";
+// import { QUERY_ME, QUERY_USERS } from "../utils/queries";
 
 const homeTiles = [
     {
@@ -90,35 +90,35 @@ const Home = () => {
             console.error(err)
         }
     }
+    const [addTrade, {error}] = useMutation(ADD_TRADE)
+    // const [addTrade, {error}] = useMutation(ADD_TRADE, {
+    //     update(cache,{ data: { addTrade } }) {
+    //     //     try {
+    //     //         const trade:any = cache.readQuery({ query: QUERY_USERS });
+    //     //         cache.writeQuery({
+    //     //           query: QUERY_USERS,
+    //     //           data: { users: { trade: [addTrade, trade] } }
+    //     //         })
+    //     //     } catch (e) {
+    //     //     console.error(e)
+    //     // }
+    //             const me:any = cache.readQuery({ query: QUERY_ME });
 
-    const [addTrade, {error}] = useMutation(ADD_TRADE, {
-        update(cache,{ data: { addTrade } }) {
-        //     try {
-        //         const trade:any = cache.readQuery({ query: QUERY_USERS });
-        //         cache.writeQuery({
-        //           query: QUERY_USERS,
-        //           data: { users: { trade: [addTrade, trade] } }
-        //         })
-        //     } catch (e) {
-        //     console.error(e)
-        // }
-                const me:any = cache.readQuery({ query: QUERY_ME });
+    //             cache.writeQuery({
+    //                 query: QUERY_ME,
+    //                 data: { me: [me.trade, addTrade] }
+    //             })
 
-                cache.writeQuery({
-                    query: QUERY_ME,
-                    data: { me: [...me.trade, addTrade] }
-                })
-
-        }
-    })
+    //     }
+    // })
     const handleTradeInput = async (plant: any) => {
         // event.preventDefault();
-        console.log('we clicked it!')
+        console.log(plant)
         try {
         await addTrade({
             variables: {
                 
-                trade: {
+                tradeData: {
                     plantId: plant.plantId,
                     plantImage: plant.plantImage,
                     plantName: plant.plantName,
@@ -169,7 +169,8 @@ const Home = () => {
                                     // description={tile.description}
                                     // url={tile.url}
                                     description='Description'
-                                    callback={() => handleTradeInput(plant)}
+                                    callbackTrade={() => handleTradeInput(plant)}
+                                    callbackWish={() => handleTradeInput(plant)} //need to make wish funtion
                                 ></Tile>
                             </div>
                         )
