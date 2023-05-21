@@ -14,48 +14,6 @@ import {
 } from 'react-bootstrap';
 import { QUERY_ME, QUERY_USERS } from "../utils/queries";
 
-const homeTiles = [
-    {
-        title: "HOUSE PLANTS",
-        image: "require (an image from the DB)",
-        description: "maybe a description?",
-        url: "route to the page",
-    },
-    {
-        title: "TROPICAL PLANTS",
-        image: "require (an image from the DB)",
-        description: "maybe a description?",
-        url: "route to the page",
-    },
-    {
-        title: "TREES",
-        image: "require (an image from the DB)",
-        description: "maybe a description?",
-        url: "route to the page",
-    },
-    {
-        title: "POPULAR",
-        image: "require (an image from the DB)",
-        description: "maybe a description?",
-        url: "route to the page",
-    },
-    {
-        title: "MORE PLANTS",
-        image: "require (an image from the DB)",
-        description: "maybe a description?",
-        url: "route to the page",
-    },
-    {
-        title: "EXTRA",
-        image: "require (an image from the DB)",
-        description: "maybe a description?",
-        url: "route to the page",
-    },
-]
-
-
-
-
 const Home = () => {
 
     const loggedIn = useContext(LoginContext);
@@ -103,17 +61,19 @@ const Home = () => {
         //     console.error(e)
         // }
                 const me:any = cache.readQuery({ query: QUERY_ME });
+                console.log(me)
+                console.log(addTrade)
 
                 cache.writeQuery({
                     query: QUERY_ME,
-                    data: { me: [...me.trade, addTrade] }
+                    data: { me: [ addTrade] }
                 })
 
         }
     })
     const handleTradeInput = async (plant: any) => {
         // event.preventDefault();
-        console.log('we clicked it!')
+        console.log('we clicked it! -- ' + { plant })
         try {
         await addTrade({
             variables: {
@@ -161,17 +121,14 @@ const Home = () => {
                 <div className="tile-container">
                     {searchedPlants.slice(0,12).map((plant: any) => {
                         return (
-                            <div>
                                 <Tile
                                     key={plant.plantId}
                                     title={plant.plantName}
                                     image={plant.plantImage}
                                     // description={tile.description}
-                                    // url={tile.url}
                                     description='Description'
-                                    callback={() => handleTradeInput(plant)}
+                                    callback={() => { console.log(plant); handleTradeInput(plant)}}
                                 ></Tile>
-                            </div>
                         )
                     })}
                 </div>
