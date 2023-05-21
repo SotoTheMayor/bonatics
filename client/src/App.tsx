@@ -45,7 +45,7 @@ function App() {
       <Router>
         <div>
           <Header />
-            <div>
+            <div className="container-fluid">
               <Routes>
                 <Route
                   path = '/'
