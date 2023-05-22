@@ -16,6 +16,9 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Signup from "./pages/Signup";
 
+import Auth from "./utils/auth"
+
+
 const httpLink = createHttpLink({
   uri: '/graphql',
 });
@@ -35,10 +38,12 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
+const keepUser = Auth.getProfile().data.email
 export const LoginContext = createContext<any>({})
+console.log(keepUser)
 
 function App() {
-  const [loggedIn, setLoggedIn] = useState(false)
+  const [loggedIn, setLoggedIn] = useState(keepUser)
   return (
     <LoginContext.Provider value={[loggedIn, setLoggedIn]}>
     <ApolloProvider client={client}>
