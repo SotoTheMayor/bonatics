@@ -44,10 +44,10 @@ const Signup = () => {
     };
 
     return (
-        <main className="row justify-content-center align-items-center mb-4">
-                <div className="card bg-light col-4 justify-content-center">
-                    <h4 className="card-header bg-success text-light text-center mb-4">Sign Up</h4>
-                    <div className="card-body">
+        <main className="row justify-content-center align-items-center mb-4 login-cont">
+                <div className="card col-4 login-card">
+                    <h4 className="card-header text-center mb-4 login-header">Sign Up</h4>
+                    <div className="justify-content-center">
                         {data ? (
                             <p>
                                 Success! You may now head{' '}
@@ -56,7 +56,7 @@ const Signup = () => {
                         ) : (
                             <form onSubmit={handleFormSubmit}>
                                 <input
-                                    className="form-input col-12 p-2 mb-4"
+                                    className="form-input col-12 p-2 mb-4 signup-input"
                                     placeholder="Your username"
                                     name="userName"
                                     type="text"
@@ -64,7 +64,7 @@ const Signup = () => {
                                     onChange={handleChange}
                                 />
                                 <input
-                                    className="form-input col-12 p-2 mb-4"
+                                    className="form-input col-12 p-2 mb-4 signup-input"
                                     placeholder="Your email"
                                     name="email"
                                     type="email"
@@ -72,20 +72,22 @@ const Signup = () => {
                                     onChange={handleChange}
                                 />
                                 <input
-                                    className="form-input col-12 p-2 mb-4"
+                                    className="form-input col-12 p-2 mb-4 signup-input"
                                     placeholder="******"
                                     name="password"
                                     type="password"
                                     value={formState.password}
                                     onChange={handleChange}
                                 />
+                                <div className='button-cont'>
                                 <button
-                                    className="btn btn-outline-success text-green p-2"
+                                    className="p-2 signup-button button"
                                     style={{ cursor: 'pointer' }}
                                     type="submit"
                                 >
                                     Submit
                                 </button>
+                                </div>
                             </form>
                         )}
 

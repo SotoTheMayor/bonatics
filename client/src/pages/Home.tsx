@@ -96,7 +96,7 @@ const Home = () => {
                         placeholder="Search for a plant"
                         onChange={(e) => setSearchInput(e.target.value)}
                     />
-                    <Button type='submit' variant='success' className="search-button">
+                    <Button type='submit' variant='success' className="search-button button">
                         Submit Search
                     </Button>
                 </Form>
