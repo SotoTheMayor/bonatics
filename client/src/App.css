@@ -1,6 +1,7 @@
 
 :root {
-  /* overflow: hidden; */
+  overflow-x: hidden;
+
 }
 
 #root {
@@ -11,9 +12,7 @@
         -o-background-size: cover;
   background-position: center;
   background-size: cover;
-min-height: 100vh;
-
-  /* overflow: hidden; */
+min-height: 120vh;
 }
 
 .App {
@@ -27,10 +26,10 @@ header {
 }
 
 footer {
-  position:relative;
-  bottom:0px;
+  padding: 30px;
   text-align: center;
   color: white;
+  /* background-color: rgba(223, 255, 202, 0.7); */
 }
 
 footer a {
@@ -157,7 +156,7 @@ input{
 }
 
 .login-input {
-
+  margin-top: 30px !important;
   margin-left: 7%;
   margin-right: 7%;
   border-radius: 0px !important;
@@ -169,8 +168,20 @@ input{
   
 }
 
-.search-button, .login-button{
-  border-color:  #366e41 !important;
+.signup-input {
+  margin-top: 15px !important;
+  margin-left: 7%;
+  margin-right: 7%;
+  border-radius: 0px !important;
+  width: 85% !important;
+  height: 40px !important;
+  border-style: solid;
+  border-color: #50a060 !important;
+  border-width: 1px !important;
+}
+
+.search-button, .login-button, .signup-button{
+  border-style: none !important;
   background-color:  #50a060 !important;
   vertical-align:top !important;
   border-radius: 0px !important;
@@ -179,29 +190,74 @@ input{
   width: 15%;
 }
 
+.logout {
+  border-style: none !important;
+  font-weight: bolder;
+  background-color: transparent;
+  color: #50a060;
+  transition: 0.1s ease-in;
+  padding-bottom: 4px;
+}
+
+.logout:hover {
+  box-shadow: 5px 3px 20px 5px rgba(0, 0, 0, 0.2);
+  background-color: #366e41;
+  color: white;
+}
+
+.button-cont {
+  width: 100%;
+  text-align: center;
+}
+
+.login-button {
+  color: white;
+  width: 50%;
+  margin-top: 30px;
+
+}
+
+.signup-button {
+  margin-top: 15px;
+  color: white;
+  width: 50%;
+}
+
+.button:hover {
+background-image: linear-gradient(to bottom, #50a060 , #366e41 );
+}
+
 .profile {
   align-items: center;
   justify-content: center;
   width: 100%;
   height: 100%;
-
 }
 
 .prof-1 {
   display: flex;
   width: 100%;
-  height: 100%;
-  display: flex;
+  height: 96%;
+  
 }
 
+.profile-cont {
+  margin-top: 40px;
+
+}
+
+
 .profile-cont, .login-cont {
+  position: relative;
   display: flex;
   padding-bottom: 15px;
   background-color: rgba(223, 255, 202, 0.7);
   width: 100vw;
   height: 85vh;
   overflow:auto;
+  overflow-x: hidden;
 }
+
 
 .login-cont {
 background-color: transparent;
@@ -229,16 +285,19 @@ background-color: transparent;
   flex-direction: column;
   width: 50%;
   height: 100%;
-  border-style: solid;
+  overflow-y: scroll;
+  border-bottom-style: solid;
   border-color: #50a060;
   margin:0px;
   
 }
 
+
 .trade-cont {
   width: 50%;
   height: 100%;
-  border-style: solid;
+  overflow-y: scroll;
+  border-bottom-style: solid;
   border-color: #50a060;
   float:right;
   margin: 0px;
@@ -253,12 +312,18 @@ background-color: transparent;
 }
 
 .prof-sub-header {
+  position: absolute;
+  width: 100%;
   background-color:#50a060;
   color: rgba(223, 255, 202, 0.7);
   font-size: 24px;
   font-weight: bolder;
   padding-left:15px;
   padding-bottom: 5px;
+}
+
+.spacer {
+  margin-top: 40px;
 }
 
 .wl-container {
@@ -279,11 +344,26 @@ background-color: transparent;
 }
 
 .wl-button {
+  position: relative;
   background-color: transparent;
   border: none;
   color:#50a060;
-  font-weight: bolder;
   float: right;
+  top: -26px;
+  
+}
+
+::-webkit-scrollbar{
+  width: 10px;
+  background:#50a060 ;
+}
+
+::-webkit-scrollbar-track {
+  border-color: #366e41;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #366e41; 
 }
 
 @media only screen and (max-width: 710px) {

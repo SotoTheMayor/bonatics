@@ -3,7 +3,7 @@ import { searchPerenualAPI } from "../utils/PerenualAPI";
 import { ADD_TRADE, ADD_WISH } from '../utils/mutations';
 import { useMutation } from '@apollo/client';
 import Tile from "./Tile";
-import { LoginContext } from '../App'
+// import { LoginContext } from '../App'
 import {
     Container,
     Col,
@@ -17,13 +17,14 @@ import hero from "../images/homepage_image.png";
 
 const Home = () => {
 
-    const loggedIn = useContext(LoginContext);
+    // const loggedIn = useContext(LoginContext);
     const [searchedPlants, setSearchedPlants] = useState([]);
     const [searchInput, setSearchInput] = useState('');
 
     useEffect(() => {
         console.log(loggedIn)
     })
+
 
     const handleFormSubmit = async (event: any) => {
         event.preventDefault();
@@ -104,6 +105,7 @@ const Home = () => {
                             Submit Search
                         </Button>
                     </Form>
+
                 </div>
 
                 <div>

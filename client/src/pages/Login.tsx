@@ -26,7 +26,7 @@ const Login = () => {
           variables: { ...formState },
         });
   
-        Auth.login(data.login.token);
+        Auth.login(data.login.token, data.login.user.userName);
       } catch (e) {
         console.error(e);
       }
@@ -65,13 +65,15 @@ const Login = () => {
                     value={formState.password}
                     onChange={handleChange}
                   />
+                  <div className='button-cont'>
                   <button
-                    className="p-2 login-button"
+                    className="p-2 login-button button"
                     style={{ cursor: 'pointer' }}
                     type="submit"
                   >
                     Submit
                   </button>
+                  </div>
                 </form>
     )}
               {error && (
