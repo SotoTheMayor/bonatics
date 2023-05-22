@@ -38,12 +38,10 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
-const keepUser = Auth.getProfile().data.email
 export const LoginContext = createContext<any>({})
-console.log(keepUser)
 
 function App() {
-  const [loggedIn, setLoggedIn] = useState(keepUser)
+  const [loggedIn, setLoggedIn] = useState(true)
   return (
     <LoginContext.Provider value={[loggedIn, setLoggedIn]}>
     <ApolloProvider client={client}>

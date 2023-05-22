@@ -6,16 +6,13 @@ import { QUERY_ME, QUERY_USERS } from "../utils/queries";
 import { useMutation } from "@apollo/client";
 import { REMOVE_TRADE, REMOVE_WISH } from "../utils/mutations";
 import Auth from "../utils/auth"
-import { LoginContext } from "../App";
 
 
 
 export default function Profile() {
     // pull in user's User Name
     const { loading, data } = useQuery(QUERY_ME);
-    const keepUser = useQuery(QUERY_USERS, {
-        variables: { email: useContext(LoginContext)[0]}
-    });
+
 
     const user = data?.me || '(No User Name Found)';
     const tradelistItems = data?.me.trade || 'Nothing added to your trade list yet!'
@@ -23,10 +20,7 @@ export default function Profile() {
     const [keepMe, setKeepMe] = useState(user)
     const [profileTradeList, setProfileTradeList] = useState(tradelistItems)
     const [profileWishList, setProfileWishList] = useState(wishlistItems)
-    console.log(tradelistItems)
-    console.log(wishlistItems)
-    console.log(keepUser)
-    console.log(useContext(LoginContext)[0]);
+
 
 
     const [removeTrade, {error: tradeError}] = useMutation(REMOVE_TRADE)
