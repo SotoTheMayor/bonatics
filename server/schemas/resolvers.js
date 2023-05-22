@@ -81,14 +81,7 @@ const resolvers = {
             if (context.user) {
                 const user = await User.findOneAndUpdate(
                     { _id: context.user._id },
-                    {
-                        $pull: {
-                            trade: {
-                                plantId
-                            },
-
-                        }
-                    },
+                    { $pull: { trade: plantId } },
                     { new: true }
                 )
                 return user
@@ -99,14 +92,7 @@ const resolvers = {
             if (context.user) {
                 const user = await User.findOneAndUpdate(
                     { _id: context.user._id },
-                    {
-                        $pull: {
-                            wish: {
-                                plantId
-                            },
-    
-                        }
-                    },
+                    {$pull: { wish: plantId } },
                     { new: true }
                 )
                 return user
