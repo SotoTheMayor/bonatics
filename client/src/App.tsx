@@ -38,12 +38,12 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
+
 export const LoginContext = createContext<any>({})
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(true)
   return (
-    <LoginContext.Provider value={[loggedIn, setLoggedIn]}>
     <ApolloProvider client={client}>
       <Router>
         <div>
@@ -72,8 +72,6 @@ function App() {
         </div>
       </Router>
     </ApolloProvider>
-    </LoginContext.Provider>
-
   );
 }
 
