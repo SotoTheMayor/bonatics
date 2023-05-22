@@ -11,11 +11,10 @@ import Auth from '../../utils/auth';
 const Footer = () => {
     return (
         <footer>
-
-
             <div className="footer">
             
-                <img src="bonatics_icon.png" alt="Bonataics Icon" width="60px" />
+                <img src="bonatics_icon.png" alt="Bonatics Icon" width="80px" />
+
                 
                 <p>© 2023 Bonatics Inc. || All Rights Reserved.</p>
                 <a href="https://github.com/SotoTheMayor/bonatics">

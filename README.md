@@ -1,70 +1,63 @@
-# Getting Started with Create React App
+# Bonatics 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description
 
-## Available Scripts
+We created "Bonatics" for all plant enthusiasts who want to trade plants or discover new plants to add to their wish list collection.  We want to create an online marketplace, similar to Etsy or Ebay to offer an alternative way of selling live plants. We know more and more people are interested in shopping for house-plants, but do not know what type of plants they should purchase or what is available.  Our website offers a space to discover what's available depending on the type of plant they're looking for and to expand their plant knowledge. 
 
-In the project directory, you can run:
 
-### `npm start`
+## Installation
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Our website is built using the MERN stacked, with a Reactfront end, MongoDB database, and Node.js/Express.js sever. 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+The following npm packages are required on the client side to make application work:
+- React
+- Graphql
+- Apollo Client
+- React Dom
+- React Router Dom
+- JWT Decode
+- React-bootstrap
 
-### `npm test`
+The following npm packages are required on the server side to make application work:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Apollo Server Express
+- Graphql
+- Json Web Token
+- Mangoose
+- MangoDB
+- Bcrypt
+- Express
+- Node
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Follow the steps below to get the development environment running:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+ - Clone our project from github ( git clone git@github.com:SotoTheMayor/bonatics.git )
+ - Install dependencies (npm install)
+ - Run npm develop (to run client and server concurrently)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Usage
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Here is the link to our deployed application: 
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Below is a screenshot of our webpage!
 
-## Learn More
+[homepage](./client/src/images/homepage.png)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+## Credits
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+This project was a joint collaboration between the following individuals:
+ - Jason Johnson: https://github.com/SotoTheMayor
+ - Kyle Oetjens: https://github.com/KyleOetjens
+ - Sam Barsuhn: https://github.com/SBarsuhn
+ - Aliya Jeylani: https://github.com/aliyajeylani
+ - Kathryn Vlasic: https://github.com/katievlasic
 
-### Analyzing the Bundle Size
+## License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+ This project uses MIT License which provides a further explanation on the usage under LICENSE

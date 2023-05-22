@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import { searchPerenualAPI } from "../utils/PerenualAPI";
-import {ADD_TRADE, ADD_WISH} from '../utils/mutations';
+import { ADD_TRADE, ADD_WISH } from '../utils/mutations';
 import { useMutation } from '@apollo/client';
 import Tile from "./Tile";
 // import { LoginContext } from '../App'
@@ -13,16 +13,19 @@ import {
     Row
 } from 'react-bootstrap';
 
+import hero from "../images/homepage_image.png";
+
 const Home = () => {
 
     // const loggedIn = useContext(LoginContext);
     const [searchedPlants, setSearchedPlants] = useState([]);
     const [searchInput, setSearchInput] = useState('');
 
-    // useEffect(() => {
-    //     // console.log(loggedIn)
-    // })
-    
+    useEffect(() => {
+        console.log(loggedIn)
+    })
+
+
     const handleFormSubmit = async (event: any) => {
         event.preventDefault();
         if (!searchInput) {
@@ -48,73 +51,86 @@ const Home = () => {
         }
     }
 
-    const [addTrade, {error: tradeError}] = useMutation(ADD_TRADE)
+    const [addTrade, { error: tradeError }] = useMutation(ADD_TRADE)
     const handleTradeInput = async (plant: any) => {
         console.log(plant)
         try {
-        await addTrade({
-            variables: {
-                tradeData: {
-                    plantId: plant.plantId,
-                    plantImage: plant.plantImage,
-                    plantName: plant.plantName,
-                }
-            },
-        });
-         }
-        catch (err) { console.log(err)}
+            await addTrade({
+                variables: {
+                    tradeData: {
+                        plantId: plant.plantId,
+                        plantImage: plant.plantImage,
+                        plantName: plant.plantName,
+                    }
+                },
+            });
+        }
+        catch (err) { console.log(err) }
     };
 
-    const [addWish, {error: wishError}] = useMutation(ADD_WISH)
+    const [addWish, { error: wishError }] = useMutation(ADD_WISH)
     const handleWishInput = async (plant: any) => {
         console.log(plant)
         try {
-        await addWish({
-            variables: {
-                wishData: {
-                    plantId: plant.plantId,
-                    plantImage: plant.plantImage,
-                    plantName: plant.plantName,
-                }
-            },
-        });
+            await addWish({
+                variables: {
+                    wishData: {
+                        plantId: plant.plantId,
+                        plantImage: plant.plantImage,
+                        plantName: plant.plantName,
+                    }
+                },
+            });
         }
-        catch (err) { console.log(err)}
+        catch (err) { console.log(err) }
     };
+
+   
 
     return (
         <>
             <div>
-              <div className="search-cont">
-                <Form onSubmit={handleFormSubmit}>
-                    <Form.Control
-                        name='searchinput'
-                        className='search'
-                        value={searchInput}
-                        // size='lg'
-                        type='text'
-                        placeholder="Search for a plant"
-                        onChange={(e) => setSearchInput(e.target.value)}
-                    />
-                    <Button type='submit' variant='success' className="search-button button">
-                        Submit Search
-                    </Button>
-                </Form>
+                <div className="search-cont">
+                    <Form onSubmit={handleFormSubmit}>
+                        <Form.Control
+                            name='searchinput'
+                            className='search'
+                            value={searchInput}
+                            // size='lg'
+                            type='text'
+                            placeholder="Search for a plant"
+                            onChange={(e) => setSearchInput(e.target.value)}
+                        />
+                        <Button type='submit' variant='success' className="search-button">
+                            Submit Search
+                        </Button>
+                    </Form>
+
                 </div>
 
+                <div>
+                    {!searchInput}
+                <img className="lg:w-2/6 md:w-3/6 w-5/6 mb-10 object-cover object-center" alt="hero" src={hero} />
+                </div>
+    
+
+                {/* if (!searchInput) {
+                    return <h2><img className="lg:w-2/6 md:w-3/6 w-5/6 mb-10 object-cover object-center" alt="hero" src={hero} /></h2>;
+                  } */}
+
                 <div className="tile-container">
-                    {searchedPlants.slice(0,12).map((plant: any) => {
+                    {searchedPlants.slice(0, 12).map((plant: any) => {
                         return (
-                                <Tile
-                                    key={plant.plantId}
-                                    title={plant.plantName}
-                                    image={plant.plantImage}
-                                    // description={tile.description}
-                                    // url={tile.url}
-                                    description='Description'
-                                    callbackTrade={() => handleTradeInput(plant)}
-                                    callbackWish={() => handleWishInput(plant)}
-                                ></Tile>
+                            <Tile
+                                key={plant.plantId}
+                                title={plant.plantName}
+                                image={plant.plantImage}
+                                // description={tile.description}
+                                // url={tile.url}
+                                description='Description'
+                                callbackTrade={() => handleTradeInput(plant)}
+                                callbackWish={() => handleWishInput(plant)}
+                            ></Tile>
                         )
                     })}
                 </div>
