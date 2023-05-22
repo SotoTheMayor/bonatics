@@ -6,27 +6,29 @@ import { QUERY_ME, QUERY_USERS } from "../utils/queries";
 import { useMutation } from "@apollo/client";
 import { REMOVE_TRADE, REMOVE_WISH } from "../utils/mutations";
 import Auth from "../utils/auth"
-import { LoginContext } from "../App";
+// import { LoginContext } from "../App"; // no ../App directory?
 
 
 
 export default function Profile() {
     // pull in user's User Name
     const { loading, data } = useQuery(QUERY_ME);
-    const keepUser = useQuery(QUERY_USERS, {
-        variables: { email: useContext(LoginContext)[0]}
-    });
+    // pull in all user's data
+    // const { loading, usersData } = useQuery(QUERY_USERS
+        // variables: { email: useContext(LoginContext)[0]} // no need to useContext
+    // );
 
     const user = data?.me || '(No User Name Found)';
-    const tradelistItems = data?.me.trade || 'Nothing added to your trade list yet!'
-    const wishlistItems = data?.me.wish || 'Nothing added to your wish list yet!'
-    const [keepMe, setKeepMe] = useState(user)
+    // const users = usersData?.users;
+    const tradelistItems = data?.me.trade || []//'Nothing added to your trade list yet!'
+    const wishlistItems = data?.me.wish || [] //'Nothing added to your wish list yet!'
+    // const [keepMe, setKeepMe] = useState(user)
     const [profileTradeList, setProfileTradeList] = useState(tradelistItems)
     const [profileWishList, setProfileWishList] = useState(wishlistItems)
     console.log(tradelistItems)
     console.log(wishlistItems)
-    console.log(keepUser)
-    console.log(useContext(LoginContext)[0]);
+    // console.log(keepUser)
+    // console.log(useContext(LoginContext)[0]);
 
 
     const [removeTrade, {error: tradeError}] = useMutation(REMOVE_TRADE)
@@ -60,7 +62,7 @@ export default function Profile() {
     return (
         <div className="profile-cont">
             <div className="profile">
-                <div className="profile-header">{keepMe.userName}'s Profile</div>
+                <div className="profile-header">{user.userName}'s Profile</div>
                 <div className="prof-1">
                     <div className='OOT-cont'>
                         <div className="prof-sub-header">Open To Trade</div>
