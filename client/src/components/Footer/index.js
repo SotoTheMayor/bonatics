@@ -15,7 +15,7 @@ const Footer = () => {
 
             <div className="footer">
             
-                <img src="bonatics_icon.png" alt="Bonataics Icon" width="80px" />
+                <img src="bonatics_icon.png" alt="Bonataics Icon" width="60px" />
                 
                 <p>© 2023 Bonatics Inc. || All Rights Reserved.</p>
                 <a href="https://github.com/SotoTheMayor/bonatics">
