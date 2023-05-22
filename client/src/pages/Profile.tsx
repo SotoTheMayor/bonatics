@@ -38,7 +38,7 @@ export default function Profile() {
                     plantId: plant.plantId,
             },
         });
-        setProfileTradeList(data.trade)
+        setProfileTradeList(data.me.trade)
          }
         catch (err) { console.log(err)}
     };
@@ -52,7 +52,7 @@ export default function Profile() {
                     plantId: plant.plantId,
             },
         });
-        setProfileWishList(data.wish)
+        setProfileWishList(data.me.wish)
         }
         catch (err) { console.log(err)}
     };
