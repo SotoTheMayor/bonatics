@@ -55,7 +55,7 @@ export default function Profile() {
                 <div className="prof-1">
                     <div className='OOT-cont'>
                         <div className="prof-sub-header">Open To Trade</div>
-                        <div>
+                        <div className="spacer">
                             {profileTradeList.map((tradelist:any) => {                                        
                                 return (
                                     <Tradelist
@@ -69,7 +69,7 @@ export default function Profile() {
                     </div>
                     <div className="wishlist-cont">
                         <div className="prof-sub-header">Wishlist</div>
-                        <div>
+                        <div className="spacer">
                             {profileWishList.map((wishlist:any) => {
                                 return (
                                     <Wishlist
@@ -80,10 +80,10 @@ export default function Profile() {
                                 )
                             })}
                         </div>
+                    </div>
                         <div className="trade-cont">
                             <div className="prof-sub-header">Plant Your Garden</div>
                         </div>
-                    </div>
                 </div>
             </div>
         </div>
