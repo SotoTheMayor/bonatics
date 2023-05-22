@@ -21,9 +21,6 @@ const Home = () => {
     const [searchedPlants, setSearchedPlants] = useState([]);
     const [searchInput, setSearchInput] = useState('');
 
-    useEffect(() => {
-        console.log(loggedIn)
-    })
 
 
     const handleFormSubmit = async (event: any) => {
