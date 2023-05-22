@@ -189,6 +189,21 @@ input{
   width: 15%;
 }
 
+.logout {
+  border-style: none !important;
+  font-weight: bolder;
+  background-color: transparent;
+  color: #50a060;
+  transition: 0.1s ease-in;
+  padding-bottom: 4px;
+}
+
+.logout:hover {
+  box-shadow: 5px 3px 20px 5px rgba(0, 0, 0, 0.2);
+  background-color: #366e41;
+  color: white;
+}
+
 .button-cont {
   width: 100%;
   text-align: center;

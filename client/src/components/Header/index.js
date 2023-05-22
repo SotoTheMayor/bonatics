@@ -30,7 +30,7 @@ const user = data?.me.userName || '(No User Name Found)';
              {user}'s Profile
             </Link>
             </li>
-            <button className="btn btn-outline-success text-green p-2" onClick={logout}>Logout</button>
+            <button className="logout" onClick={logout}>Logout</button>
           </>
         ) : (
           <>
