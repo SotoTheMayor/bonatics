@@ -155,7 +155,7 @@ input{
 }
 
 .login-input {
-
+  margin-top: 30px !important;
   margin-left: 7%;
   margin-right: 7%;
   border-radius: 0px !important;
@@ -167,8 +167,20 @@ input{
   
 }
 
-.search-button, .login-button{
-  border-color:  #366e41 !important;
+.signup-input {
+  margin-top: 15px !important;
+  margin-left: 7%;
+  margin-right: 7%;
+  border-radius: 0px !important;
+  width: 85% !important;
+  height: 40px !important;
+  border-style: solid;
+  border-color: #50a060 !important;
+  border-width: 1px !important;
+}
+
+.search-button, .login-button, .signup-button{
+  border-style: none !important;
   background-color:  #50a060 !important;
   vertical-align:top !important;
   border-radius: 0px !important;
@@ -177,12 +189,48 @@ input{
   width: 15%;
 }
 
+.logout {
+  border-style: none !important;
+  font-weight: bolder;
+  background-color: transparent;
+  color: #50a060;
+  transition: 0.1s ease-in;
+  padding-bottom: 4px;
+}
+
+.logout:hover {
+  box-shadow: 5px 3px 20px 5px rgba(0, 0, 0, 0.2);
+  background-color: #366e41;
+  color: white;
+}
+
+.button-cont {
+  width: 100%;
+  text-align: center;
+}
+
+.login-button {
+  color: white;
+  width: 50%;
+  margin-top: 30px;
+
+}
+
+.signup-button {
+  margin-top: 15px;
+  color: white;
+  width: 50%;
+}
+
+.button:hover {
+background-image: linear-gradient(to bottom, #50a060 , #366e41 );
+}
+
 .profile {
   align-items: center;
   justify-content: center;
   width: 100%;
   height: 100%;
-
 }
 
 .prof-1 {
@@ -194,16 +242,19 @@ input{
 
 .profile-cont {
   margin-top: 40px;
+
 }
 
 
 .profile-cont, .login-cont {
+  position: relative;
   display: flex;
   padding-bottom: 15px;
   background-color: rgba(223, 255, 202, 0.7);
   width: 100vw;
   height: 85vh;
   overflow:auto;
+  overflow-x: hidden;
 }
 
 
@@ -302,19 +353,16 @@ background-color: transparent;
 }
 
 ::-webkit-scrollbar{
-  margin-top: 40px;
   width: 10px;
   background:#50a060 ;
 }
 
 ::-webkit-scrollbar-track {
-  margin-top: 40px;
   border-color: #366e41;
 }
 
 ::-webkit-scrollbar-thumb {
   background: #366e41; 
-  border-radius: 10px;
 }
 
 @media only screen and (max-width: 710px) {
