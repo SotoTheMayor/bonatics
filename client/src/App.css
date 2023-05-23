@@ -39,6 +39,26 @@ footer a {
 .hero {
   display: flex;
   text-align: center;
+  position: relative;
+  text-align: center;
+}
+
+.hero-img {
+  height: 65vh;
+  width: 100vw;
+  object-fit: cover;
+  object-position: 50% 55% !important;
+}
+
+.hero-text {
+  width: 100%;
+  color: black;
+  font-weight: bolder;
+  font-size: 100px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .navbar-cont {
@@ -314,6 +334,7 @@ background-color: transparent;
   height: 100%;
   overflow-y: scroll;
   border-bottom-style: solid;
+  border-right-style: solid ;
   border-color: #50a060;
   margin:0px;
   
@@ -381,16 +402,15 @@ background-color: transparent;
 }
 
 ::-webkit-scrollbar{
-  width: 10px;
-  background:#50a060 ;
+  display: none;
 }
 
 ::-webkit-scrollbar-track {
-  border-color: #366e41;
+  display: none;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #366e41; 
+  display: none;
 }
 
 @media only screen and (max-width: 710px) {

@@ -1,4 +1,5 @@
 import React from "react";
+import Auth from "../utils/auth";
 interface cardProps {
 title: string,
 image: string,
@@ -13,6 +14,7 @@ const Tile = (props: cardProps) => {
         <div className="tile">
           <div className="tile-title">{props.title}</div>
           <img src={props.image} className="tile-image" alt={props.title} />
+          {Auth.loggedIn() ? (
           <div className="button-spacer">
           <div onClick={props.callbackTrade} className="tile-url-1">
             <button className="site-but">Add Trade</button>
@@ -21,6 +23,7 @@ const Tile = (props: cardProps) => {
             <button className="site-but">Add Wish</button>
             </div>
           </div>
+          ) : (<></>)}
           </div>
         </div>
       // </div>

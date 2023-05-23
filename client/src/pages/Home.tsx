@@ -14,7 +14,7 @@ import {
     Row
 } from 'react-bootstrap';
 
-import hero from "../images/homepage_image.png";
+import hero from "../images/homepage_image.jpg";
 
 const Home = () => {
 
@@ -144,7 +144,8 @@ const Home = () => {
 
 
                 {!submitted && <> <div className="hero">
-                    <img className={`lg:w-2/6 md:w-3/6 w-5/6 mb-10 object-cover object-center
+                    <div className="hero-text">Find and Trade Your Perfect Plant</div>
+                    <img className={`lg:w-2/6 md:w-3/6 w-5/6 mb-10 object-cover object-center hero-img
               `} alt="hero" src={hero} />
                 </div></>}
 
