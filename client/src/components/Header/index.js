@@ -11,9 +11,9 @@ const Header = (event) => {
     Auth.logout();
   };
 
-// pull in logged in user's user name
-const { loading, data } = useQuery(QUERY_ME);
-const user = data?.me.userName || '(No User Name Found)';
+  // pull in logged in user's user name
+  const { loading, data } = useQuery(QUERY_ME);
+  const user = data?.me.userName || "(No User Name Found)";
 
   return (
     <header>
@@ -25,12 +25,16 @@ const user = data?.me.userName || '(No User Name Found)';
         </li>
         {Auth.loggedIn() ? (
           <>
-             <li>
-                <Link to="/profile" className="navbar">
-             {user}'s Profile
-            </Link>
+            <li>
+              <Link to="/profile" className="navbar">
+                {user}'s Profile
+              </Link>
             </li>
-            <button className="logout" onClick={logout}>Logout</button>
+            <button className="logout" onClick={logout}>
+              Logout
+              <Link to="/" className="navbar">
+              </Link>
+            </button>
           </>
         ) : (
           <>
@@ -52,6 +56,5 @@ const user = data?.me.userName || '(No User Name Found)';
     </header>
   );
 };
-
 
 export default Header;
