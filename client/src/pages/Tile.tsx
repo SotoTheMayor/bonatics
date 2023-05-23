@@ -13,14 +13,15 @@ const Tile = (props: cardProps) => {
         <div className="tile">
           <div className="tile-title">{props.title}</div>
           <img src={props.image} className="tile-image" alt={props.title} />
-          <div onClick={props.callbackTrade} className="tile-url">
+          <div className="button-spacer">
+          <div onClick={props.callbackTrade} className="tile-url-1">
             <button className="site-but">Add Trade</button>
           </div>
-          <div onClick={props.callbackWish} className="tile-url">
+          <div onClick={props.callbackWish} className="tile-url-2">
             <button className="site-but">Add Wish</button>
+            </div>
           </div>
           </div>
-          {/* <div className="tile-desc">{props.description}</div> */}
         </div>
       // </div>
   );
