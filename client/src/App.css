@@ -51,6 +51,7 @@ footer a {
 }
 
 .hero-text {
+  text-shadow: 3px 3px 40px #ffffff;
   width: 100%;
   color: black;
   font-weight: bolder;
@@ -270,6 +271,9 @@ input{
   width: 50%;
 }
 
+.button {
+}
+
 .button:hover {
 background-image: linear-gradient(to bottom, #50a060 , #366e41 );
 }
@@ -381,24 +385,40 @@ background-color: transparent;
   border-left-width: 0px;
   border-right-width: 0px;
   border-color: #50a060;
+  background-image: linear-gradient(to bottom, rgba(223, 255, 202, 0.7) , #52525233 );
+  transition: ;
+}
+
+.wl-container:hover {
+  background-color: #366e41;
+  background-image: linear-gradient(to bottom, #52525213 , rgba(223, 255, 202, 0.37) );
+  .wl-item {
+    color:white;
+  }
+
+  .wl-button {
+    color:white;
+  }
 }
 
 
 .wl-item {
-  color:#50a060;
-  font-weight: bolder;
+  color:#366e41;
   padding: 10px;
-
 }
 
 .wl-button {
   position: relative;
   background-color: transparent;
   border: none;
-  color:#50a060;
+  color:#366e41;
   float: right;
   top: -26px;
-  
+  transition: 0.1s ease-in;
+}
+
+.wl-button:hover {
+  transform: scale(1.3);
 }
 
 ::-webkit-scrollbar{
