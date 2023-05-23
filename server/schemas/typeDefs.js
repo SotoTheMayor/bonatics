@@ -43,8 +43,8 @@ const typeDefs = gql`
     type Query {
         users: [User]
         me: User
-        wishTrade(plantId: String!):[User]
-        tradeWish(plantId: String!):[User]
+        wishTrade(plantId: Int!):[User]
+        tradeWish(plantId: Int!):[User]
     }
 
     type Mutation {
