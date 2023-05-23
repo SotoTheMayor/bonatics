@@ -1,6 +1,6 @@
 import React from "react";
 interface tradelistProps {
-    title: string,
+    title: any,
     callbackWishTrade: any
 }
 
