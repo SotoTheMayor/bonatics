@@ -20,6 +20,7 @@ const Home = () => {
 
     const [searchedPlants, setSearchedPlants] = useState([]);
     const [searchInput, setSearchInput] = useState('');
+    const [submitted, setSubmitted] = useState(false);
 
     const { loading, data } = useQuery(QUERY_ME);
 
@@ -102,7 +103,19 @@ const Home = () => {
 
     };
 
-   
+
+
+    const handleInputChange = (event: any) => {
+      const value = event.target.value;
+      setSearchInput(value);
+
+        if (value == "") {
+            setSubmitted(false);
+        }
+
+    }
+
+
 
     return (
         <>
@@ -116,26 +129,29 @@ const Home = () => {
                             // size='lg'
                             type='text'
                             placeholder="Search for a plant"
-                            onChange={(e) => setSearchInput(e.target.value)}
+                            onChange={handleInputChange}
                         />
-                        <Button type='submit' variant='success' className="search-button">
+
+                        <Button onClick={() => setSubmitted(true)} type='submit' variant='success' className="search-button">
+
+
                             Submit Search
                         </Button>
                     </Form>
 
                 </div>
 
-                <div>
-                    {!searchInput}
-                <img className="lg:w-2/6 md:w-3/6 w-5/6 mb-10 object-cover object-center" alt="hero" src={hero} />
-                </div>
-    
 
-                {/* if (!searchInput) {
-                    return <h2><img className="lg:w-2/6 md:w-3/6 w-5/6 mb-10 object-cover object-center" alt="hero" src={hero} /></h2>;
-                  } */}
 
-                <div className="tile-container">
+                {!submitted && <> <div className="hero">
+                    <img className={`lg:w-2/6 md:w-3/6 w-5/6 mb-10 object-cover object-center
+              `} alt="hero" src={hero} />
+                </div></>}
+
+
+
+
+                {submitted && <> <div className="tile-container">
                     {searchedPlants.slice(0, 12).map((plant: any) => {
                         return (
                             <Tile
@@ -150,7 +166,7 @@ const Home = () => {
                             ></Tile>
                         )
                     })}
-                </div>
+                </div> </>}
             </div>
         </>
     )
