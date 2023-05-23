@@ -84,7 +84,7 @@ const Home = () => {
     const [addWish, { error: wishError }] = useMutation(ADD_WISH)
     const handleWishInput = async (plant: any) => {
         console.log(plant)
-        const tradeArray = data.me.trade
+        const tradeArray = data.me.wish
         if (search(plant.plantId, tradeArray)) {
 
         try {
