@@ -52,8 +52,8 @@ const typeDefs = gql`
         login(email: String!, password: String!): Auth
         addWish(wishData: WishInput): User
         addTrade(tradeData: TradeInput): User
-        removeTrade(plantId: String!): User
-        removeWish(plantId: String!): User
+        removeTrade(plantId: Int!): User
+        removeWish(plantId: Int!): User
     }
 
 `;
