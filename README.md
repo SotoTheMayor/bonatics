@@ -45,7 +45,7 @@ Here is the link to our deployed application:
 
 Below is a screenshot of our webpage!
 
-[homepage](./client/src/images/homepage.png)
+![homepage](./client/src/images/homepage.png)
 
 
 
