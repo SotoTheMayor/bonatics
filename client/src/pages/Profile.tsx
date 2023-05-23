@@ -17,8 +17,8 @@ export default function Profile() {
 
     const user = data?.me || '(No User Name Found)';
     // const users = usersData?.users;
-    const tradelistItems = data?.me.trade || []//'Nothing added to your trade list yet!'
-    const wishlistItems = data?.me.wish || [] //'Nothing added to your wish list yet!'
+    const tradelistItems = data?.me.trade || ['Nothing added to your trade list yet!']//'Nothing added to your trade list yet!'
+    const wishlistItems = data?.me.wish || ['Nothing added to your wish list yet!'] //'Nothing added to your wish list yet!'
     // const [keepMe, setKeepMe] = useState(user)
     const [profileTradeList, setProfileTradeList] = useState(tradelistItems)
     const [profileWishList, setProfileWishList] = useState(wishlistItems)

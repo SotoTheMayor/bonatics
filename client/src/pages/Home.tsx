@@ -111,7 +111,11 @@ const Home = () => {
                             placeholder="Search for a plant"
                             onChange={handleInputChange}
                         />
+
                         <Button onClick={() => setSubmitted(true)} type='submit' variant='success' className="search-button">
+
+                        <Button type='submit' variant='success' className="search-button button">
+
                             Submit Search
                         </Button>
                     </Form>
