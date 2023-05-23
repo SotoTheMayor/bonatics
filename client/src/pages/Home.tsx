@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useContext } from "react";
 import { searchPerenualAPI } from "../utils/PerenualAPI";
+import { useQuery } from "@apollo/client";
+import { QUERY_ME, QUERY_USERS } from "../utils/queries";
 import { ADD_TRADE, ADD_WISH } from '../utils/mutations';
 import { useMutation } from '@apollo/client';
 import Tile from "./Tile";
-// import { LoginContext } from '../App'
 import {
     Container,
     Col,
@@ -17,11 +18,20 @@ import hero from "../images/homepage_image.png";
 
 const Home = () => {
 
-    // const loggedIn = useContext(LoginContext);
     const [searchedPlants, setSearchedPlants] = useState([]);
     const [searchInput, setSearchInput] = useState('');
 
+    const { loading, data } = useQuery(QUERY_ME);
 
+    function search(plant: any, array: any) {
+        for (let i=0; i < array.length; i++ ) {
+            if (array[i].plantId === plant) {
+                console.log(array[i].plantId + ' = ' + plant)
+                console.log("++++plant already on your list+++")
+                return false
+            }
+        } return true
+    }
 
     const handleFormSubmit = async (event: any) => {
         event.preventDefault();
@@ -51,6 +61,10 @@ const Home = () => {
     const [addTrade, { error: tradeError }] = useMutation(ADD_TRADE)
     const handleTradeInput = async (plant: any) => {
         console.log(plant)
+        const tradeArray = data.me.trade
+        if (search(plant.plantId, tradeArray)) {
+            
+        // if(data.me.trade.includes(plant.plantId)) {
         try {
             await addTrade({
                 variables: {
@@ -63,11 +77,15 @@ const Home = () => {
             });
         }
         catch (err) { console.log(err) }
+    } else {console.log('plant already on your list!')}
     };
 
     const [addWish, { error: wishError }] = useMutation(ADD_WISH)
     const handleWishInput = async (plant: any) => {
         console.log(plant)
+        const tradeArray = data.me.trade
+        if (search(plant.plantId, tradeArray)) {
+
         try {
             await addWish({
                 variables: {
@@ -80,6 +98,8 @@ const Home = () => {
             });
         }
         catch (err) { console.log(err) }
+    } else {console.log('plant already on your list!'); return}
+
     };
 
    

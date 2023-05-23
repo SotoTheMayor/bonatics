@@ -87,8 +87,8 @@ mutation addWish ($wishData: WishInput) {
 }
 `;
 
-export const REMOVE_TRADE = gql `
-mutation Mutation($plantId: String!) {
+export const REMOVE_TRADE = gql`
+mutation Mutation($plantId: Int!) {
   removeTrade(plantId: $plantId) {
     _id
     email
@@ -106,8 +106,8 @@ mutation Mutation($plantId: String!) {
   }
 }`;
 
-export const REMOVE_WISH = gql `
-mutation Mutation($plantId: String!) {
+export const REMOVE_WISH = gql`
+mutation Mutation($plantId: Int!) {
   removeWish(plantId: $plantId) {
     _id
     email

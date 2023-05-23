@@ -43,8 +43,8 @@ const typeDefs = gql`
     type Query {
         users: [User]
         me: User
-        wishTrade(plantId: String!):[User]
-        tradeWish(plantId: String!):[User]
+        wishTrade(plantId: Int!):[User]
+        tradeWish(plantId: Int!):[User]
     }
 
     type Mutation {
@@ -52,8 +52,8 @@ const typeDefs = gql`
         login(email: String!, password: String!): Auth
         addWish(wishData: WishInput): User
         addTrade(tradeData: TradeInput): User
-        removeTrade(plantId: String!): User
-        removeWish(plantId: String!): User
+        removeTrade(plantId: Int!): User
+        removeWish(plantId: Int!): User
     }
 
 `;

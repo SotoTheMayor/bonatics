@@ -16,10 +16,10 @@ export default function Profile() {
 
 
     const user = data?.me || '(No User Name Found)';
-    // const users = usersData?.users;
-    const tradelistItems = data?.me.trade || []//'Nothing added to your trade list yet!'
-    const wishlistItems = data?.me.wish || [] //'Nothing added to your wish list yet!'
-    // const [keepMe, setKeepMe] = useState(user)
+
+    const tradelistItems = data?.me.trade || []
+    const wishlistItems = data?.me.wish || [] 
+
     const [profileTradeList, setProfileTradeList] = useState(tradelistItems)
     const [profileWishList, setProfileWishList] = useState(wishlistItems)
 
@@ -30,10 +30,12 @@ export default function Profile() {
         try {
         await removeTrade({
             variables: {
-                    plantId: plant.plantId,
+                // trade: {
+                    plantId: plant,
+                // }
             },
         });
-        setProfileTradeList(data.me.trade)
+        await setProfileTradeList(data.me.trade)
          }
         catch (err) { console.log(err)}
     };
@@ -44,10 +46,12 @@ export default function Profile() {
         try {
         await removeWish({
             variables: {
-                    plantId: plant.plantId,
+                // wish: {
+                    plantId: plant,
+                // }
             },
         });
-        setProfileWishList(data.me.wish)
+        await setProfileWishList(data.me.wish)
         }
         catch (err) { console.log(err)}
     };
@@ -63,7 +67,7 @@ export default function Profile() {
                             {profileTradeList.map((tradelist:any) => {                                        
                                 return (
                                     <Tradelist
-                                        key={tradelist.plantId}
+                                        key={'T' + tradelist.plantId}
                                         title={tradelist.plantName}
                                         callbackTrade={() => handleTradeDelete(tradelist.plantId)}
                                     ></Tradelist>
@@ -77,7 +81,7 @@ export default function Profile() {
                             {profileWishList.map((wishlist:any) => {
                                 return (
                                     <Wishlist
-                                        key={wishlist.plantId}
+                                        key={'W' + wishlist.plantId}
                                         title={wishlist.plantName}
                                         callbackWish={() => handleWishDelete(wishlist.plantId)}
                                     ></Wishlist>
