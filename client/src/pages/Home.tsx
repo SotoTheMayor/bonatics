@@ -114,7 +114,6 @@ const Home = () => {
 
                         <Button onClick={() => setSubmitted(true)} type='submit' variant='success' className="search-button">
 
-                        <Button type='submit' variant='success' className="search-button button">
 
                             Submit Search
                         </Button>

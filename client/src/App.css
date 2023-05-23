@@ -99,7 +99,7 @@ li {
 .tile::before {
   content: '';
   z-index: 10;
-  background-image: linear-gradient(to bottom, rgba(223, 255, 202, 0.055) , rgb(19, 24, 14));
+  background-image: linear-gradient(to bottom, rgba(223, 255, 202, 0.055) , rgba(19, 24, 14, 0.5));
   background-size: cover;
    width: 100%;
   height: 100%;
