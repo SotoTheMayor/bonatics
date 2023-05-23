@@ -39,3 +39,17 @@ query users {
   }
 }
 `;
+
+export const QUERY_WISHTRADE = gql `
+query WishTrade($plantId: Int!) {
+  wishTrade(plantId: $plantId) {
+    _id
+    email
+    userName
+    trade {
+      plantId
+      plantImage
+      plantName
+    }
+  }
+}`
