@@ -36,6 +36,11 @@ footer a {
   padding: 10px;
 }
 
+.hero {
+  display: flex;
+  text-align: center;
+}
+
 
 .navbar-cont {
   margin-bottom: 0px !important;
