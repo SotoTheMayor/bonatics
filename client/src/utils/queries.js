@@ -40,7 +40,7 @@ query users {
 }
 `;
 
-export const QUERY_WISHTRADE = gql `
+export const QUERY_WISHTRADE = gql`
 query WishTrade($plantId: Int!) {
   wishTrade(plantId: $plantId) {
     _id

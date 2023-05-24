@@ -84,8 +84,8 @@ const Home = () => {
     const [addWish, { error: wishError }] = useMutation(ADD_WISH)
     const handleWishInput = async (plant: any) => {
         console.log(plant)
-        const tradeArray = data.me.wish
-        if (search(plant.plantId, tradeArray)) {
+        const wishArray = data.me.wish
+        if (search(plant.plantId, wishArray)) {
 
         try {
             await addWish({
@@ -99,7 +99,7 @@ const Home = () => {
             });
         }
         catch (err) { console.log(err) }
-    } else {console.log('plant already on your list!'); return}
+    } else {console.log('plant already on your list!')}
 
     };
 

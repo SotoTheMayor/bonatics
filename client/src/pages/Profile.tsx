@@ -2,11 +2,12 @@ import React, { useState, useContext } from "react";
 import Wishlist from '../components/Profile/Wishlist';
 import Tradelist from '../components/Profile/Tradelist';
 import WishTrade from '../components/Profile/PYG'
-import { useQuery } from "@apollo/client";
+import { useLazyQuery, useQuery } from "@apollo/client";
 import { QUERY_ME, QUERY_USERS,QUERY_WISHTRADE } from "../utils/queries";
 import { useMutation } from "@apollo/client";
 import { REMOVE_TRADE, REMOVE_WISH } from "../utils/mutations";
 import Auth from "../utils/auth"
+import WishTradeGroup from "../components/Profile/WishTradeGroup";
 
 
 
@@ -14,17 +15,35 @@ import Auth from "../utils/auth"
 export default function Profile() {
     // pull in user's User Name
     const { loading, data } = useQuery(QUERY_ME);
-
+    // const [getWishTrade, {data: gwtData, error: gwtError}] = useLazyQuery(QUERY_WISHTRADE)
 
     const user = data?.me || '(No User Name Found)';
 
     const tradelistItems = data?.me.trade || []
     const wishlistItems = data?.me.wish || [] 
-
+    // let wishTradeResult:any[] = []
 
     const [profileTradeList, setProfileTradeList] = useState(tradelistItems)
     const [profileWishList, setProfileWishList] = useState(wishlistItems)
-    const [profileWishTradeList, setProfileWishTradeList] = useState([])
+    // const [profileWishTradeList, setProfileWishTradeList] = useState(wishTradeResult)
+
+    
+    // console.log(profileWishList)
+    // const determineWishTrade = async (plantId:number) => {
+        // return await getWishTrade( { variables: {plantId : plantId } } )
+        
+
+    //     for (let i=0; i<profileWishList.length; i++) {
+    //         const users = getWishTrade( { variables: {plantId : plantId } } )
+    //         if (profileWishList[i] === users) {
+    //             console.log(users)
+    //             wishTradeResult.push(i)
+    //             return profileWishList[i]
+    //         }
+    //     }
+    //     setProfileWishTradeList(wishTradeResult)
+    //     return wishTradeResult
+    // }
 
     const [removeTrade, {error: tradeError}] = useMutation(REMOVE_TRADE)
     const handleTradeDelete = async (plant: any) => {
@@ -41,11 +60,8 @@ export default function Profile() {
          }
         catch (err) { console.log(err)}
     };
-    const test =  useQuery(QUERY_WISHTRADE, {
-        variables:{plantId:2}
-    })
-   console.log(test);
-   
+    
+
 
     const [removeWish, {error: wishError}] = useMutation(REMOVE_WISH)
     const handleWishDelete = async (plant: any) => {
@@ -99,13 +115,18 @@ export default function Profile() {
                         <div className="trade-cont">
                             <div className="prof-sub-header">Plant Your Garden</div>
                             <div className="spacer">
-                            {profileWishTradeList.map((wishTradelist:any) => {
+                            {profileWishList.map((wish:any) => {
+                                // const users:any = await determineWishTrade(wish.plantId)
+                                // const wishTrades = users.map((user:any) => (<WishTrade key={user._id} user={user} ></WishTrade>))
                                 return (
-                                    <WishTrade
-                                        key={wishTradelist.plantId}
-                                        title={wishTradelist.plantName}
-                                        callbackWishTrade={() => (wishTradelist.plantId)}
-                                    ></WishTrade>
+                                    <WishTradeGroup
+                                    plantId={wish.plantId}
+                                    ></WishTradeGroup>
+                                    // <WishTrade
+                                        // key={users}
+                                        // user={users}
+                                        // callbackWishTrade={() => wish.plantId}
+                                    // ></WishTrade>
                                 )
                             })}
                         </div>
