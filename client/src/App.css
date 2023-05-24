@@ -424,6 +424,10 @@ background-color: transparent;
   transition: 0.1s ease-in;
 }
 
+.pyg-button {
+  top: 0px;
+}
+
 .wl-button:hover {
   transform: scale(1.3);
 }
@@ -492,7 +496,7 @@ background-color: transparent;
     flex-direction: column;
   }
 
-  .OOT-cont, .wishlist-cont {
+  .OOT-cont, .wishlist-cont, .trade-cont {
     width: 100%;
   }
 
