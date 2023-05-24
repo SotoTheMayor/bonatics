@@ -45,7 +45,7 @@ const Signup = () => {
 
     return (
         <main className="row justify-content-center align-items-center mb-4 login-cont">
-                <div className="card col-4 login-card">
+                <div className="card col-4 login-card signup-card">
                     <h4 className="card-header text-center mb-4 login-header">Sign Up</h4>
                     <div className="justify-content-center">
                         {data ? (
