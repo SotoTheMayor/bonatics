@@ -7,10 +7,11 @@ description: string,
 callbackTrade: any,
 callbackWish: any
 }
+
+//display tiles for the plants returned from the API call
 const Tile = (props: cardProps) => {
   return (
       <div className="tile-cont">
-          {/* <div onClick={props.callback} className="tile-url"> */}
         <div className="tile">
           <div className="tile-title">{props.title}</div>
           <img src={props.image} className="tile-image" alt={props.title} />
@@ -26,7 +27,6 @@ const Tile = (props: cardProps) => {
           ) : (<></>)}
           </div>
         </div>
-      // </div>
   );
 };
 

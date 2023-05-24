@@ -4,6 +4,7 @@ interface tradelistProps {
     callbackTrade: any
 }
 
+//renders the list of trade items per logged in user on the .map in profile
 const Tradelist = (props: tradelistProps) => {
     return (
         <div className="wl-container">

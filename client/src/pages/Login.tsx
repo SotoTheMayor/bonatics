@@ -6,9 +6,11 @@ import { LOGIN } from '../utils/mutations';
 import Auth from '../utils/auth';
 
 const Login = () => {
+  //blanks out the login form on page load
     const [formState, setFormState] = useState({ email: '', password: '' });
     const [login, { error, data }] = useMutation(LOGIN);
 
+    //updates the form state as data is entered
     const handleChange = (event: any) => {
       const { name, value } = event.target;
   
@@ -18,6 +20,7 @@ const Login = () => {
       });
     };
   
+    //tests the form state against Auth middleware
     const handleFormSubmit = async (event: any) => {
       event.preventDefault();
       console.log(formState);
