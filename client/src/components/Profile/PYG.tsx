@@ -1,20 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
 interface tradelistProps {
-    // title: any,
+    plantName: any,
     user: any,
     // callbackWishTrade: any
 }
 
 const WishTrade = (props: tradelistProps) => {
     const email = props.user.email
-    console.log(props.user.trade.plantName);
+    console.log(props.user.trade);
     
     return (
         <div className="wl-container">
         {/* <span className="wl-item">{props.title}</span> */}
-        <span className="wl-item">{props.user.userName} has your , 
-        <a href={`mailto:${email}`}>Send email</a>
+        <span className="wl-item">{props.user.userName} has your {props.plantName}!
+        <a href={`mailto:${email}`}> Send email?</a>
         
         </span>
 
@@ -29,4 +29,3 @@ const WishTrade = (props: tradelistProps) => {
 export default WishTrade
 
 
-{/* <a href="mailto:`{email}`?"></a> */}

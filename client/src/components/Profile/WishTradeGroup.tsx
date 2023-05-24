@@ -4,7 +4,7 @@ import WishTrade from '../Profile/PYG'
 import { useLazyQuery, useQuery } from "@apollo/client";
 import { QUERY_ME, QUERY_USERS, QUERY_WISHTRADE } from "../../utils/queries";
 interface wishTradeGroupProps {
-    // children: any,
+    plantName: any,
     plantId: any,
 }
 
@@ -21,6 +21,7 @@ const WishTradeGroup = (props: wishTradeGroupProps) => {
      {users.wishTrade.map((user:any) => 
         <WishTrade 
         user={user}
+        plantName={props.plantName}
         ></WishTrade>
      )}
      </>
