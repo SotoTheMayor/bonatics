@@ -43,9 +43,7 @@ export default function Profile() {
         try {
             await removeWish({
                 variables: {
-                    // wish: {
                     plantId: plant,
-                    // }
                 },
             });
             setProfileWishList(data.me.wish)

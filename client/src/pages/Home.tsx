@@ -103,12 +103,11 @@ const Home = () => {
 
     };
 
-    
     const handleInputChange = (event: any) => {
         const value = event.target.value;
         setSearchInput(value);
 
-        if (value == "") {
+        if (value === "") {
             setSubmitted(false);
         }
     }
@@ -127,7 +126,6 @@ const Home = () => {
                             placeholder="Search for a plant"
                             onChange={handleInputChange}
                         />
-
                         <Button onClick={() => setSubmitted(true)} type='submit' variant='success' className="search-button button">
                             Search
                         </Button>
@@ -144,8 +142,6 @@ const Home = () => {
                 </div></>}
 
 
-
-
                 {submitted && <> <div className="tile-container">
                     {searchedPlants.slice(0, 12).map((plant: any) => {
                         return (
@@ -153,8 +149,6 @@ const Home = () => {
                                 key={plant.plantId}
                                 title={plant.plantName}
                                 image={plant.plantImage}
-                                // description={tile.description}
-                                // url={tile.url}
                                 description='Description'
                                 callbackTrade={() => handleTradeInput(plant)}
                                 callbackWish={() => handleWishInput(plant)}
