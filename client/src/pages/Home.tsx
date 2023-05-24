@@ -25,7 +25,7 @@ const Home = () => {
     const { loading, data } = useQuery(QUERY_ME);
 
     function search(plant: any, array: any) {
-        for (let i=0; i < array.length; i++ ) {
+        for (let i = 0; i < array.length; i++) {
             if (array[i].plantId === plant) {
                 console.log(array[i].plantId + ' = ' + plant)
                 console.log("++++plant already on your list+++")
@@ -64,21 +64,22 @@ const Home = () => {
         console.log(plant)
         const tradeArray = data.me.trade
         if (search(plant.plantId, tradeArray)) {
-            
-        // if(data.me.trade.includes(plant.plantId)) {
-        try {
-            await addTrade({
-                variables: {
-                    tradeData: {
-                        plantId: plant.plantId,
-                        plantImage: plant.plantImage,
-                        plantName: plant.plantName,
-                    }
-                },
-            });
-        }
-        catch (err) { console.log(err) }
-    } else {console.log('plant already on your list!')}
+
+            // if(data.me.trade.includes(plant.plantId)) {
+            try {
+                await addTrade({
+                    variables: {
+                        tradeData: {
+                            plantId: plant.plantId,
+                            plantImage: plant.plantImage,
+                            plantName: plant.plantName,
+                        }
+                    },
+                });
+
+            }
+            catch (err) { console.log(err) }
+        } else { console.log('plant already on your list!') }
     };
 
     const [addWish, { error: wishError }] = useMutation(ADD_WISH)
@@ -87,35 +88,31 @@ const Home = () => {
         const wishArray = data.me.wish
         if (search(plant.plantId, wishArray)) {
 
-        try {
-            await addWish({
-                variables: {
-                    wishData: {
-                        plantId: plant.plantId,
-                        plantImage: plant.plantImage,
-                        plantName: plant.plantName,
-                    }
-                },
-            });
-        }
-        catch (err) { console.log(err) }
-    } else {console.log('plant already on your list!')}
+            try {
+                await addWish({
+                    variables: {
+                        wishData: {
+                            plantId: plant.plantId,
+                            plantImage: plant.plantImage,
+                            plantName: plant.plantName,
+                        }
+                    },
+                });
+            }
+            catch (err) { console.log(err) }
+        } else { console.log('plant already on your list!') }
 
     };
 
-
-
     const handleInputChange = (event: any) => {
-      const value = event.target.value;
-      setSearchInput(value);
+        const value = event.target.value;
+        setSearchInput(value);
 
         if (value == "") {
             setSubmitted(false);
         }
 
     }
-
-
 
     return (
         <>
@@ -133,7 +130,7 @@ const Home = () => {
                         />
 
                         <Button onClick={() => setSubmitted(true)} type='submit' variant='success' className="search-button button">
-                        Search
+                            Search
                         </Button>
                     </Form>
 
