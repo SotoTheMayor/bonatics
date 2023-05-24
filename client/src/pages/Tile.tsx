@@ -18,10 +18,10 @@ const Tile = (props: cardProps) => {
           {Auth.loggedIn() ? (
           <div className="button-spacer">
           <div onClick={props.callbackTrade} className="tile-url-1">
-            <button className="site-but">Add Trade</button>
+            <button className="site-but anim">Add Trade</button>
           </div>
           <div onClick={props.callbackWish} className="tile-url-2">
-            <button className="site-but">Add Wish</button>
+            <button className="site-but anim">Add Wish</button>
             </div>
           </div>
           ) : (<></>)}

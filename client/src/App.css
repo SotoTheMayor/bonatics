@@ -175,6 +175,21 @@ transform: scale(1.03);
   box-shadow: 0px 0px 5px white;
 }
 
+.anim {
+  transition: 0.3s;
+}
+
+.anim:focus {
+  box-shadow: 0px 0px 0px 1px rgba(223, 255, 202, 0.7);
+  animation: button-click .2s forwards;
+}
+
+@keyframes button-click {
+  100% {
+    box-shadow: 0px 0px 10px 20px rgba(223, 255, 202, 0);
+  }
+}
+
 input{
   text-indent: 10px;
 }
@@ -421,6 +436,40 @@ background-color: transparent;
   float: right;
   top: -26px;
   transition: 0.1s ease-in;
+}
+
+.anim2 {
+  transition: 0.3s;
+}
+
+.anim2:focus {
+  animation: goodbye .3s forwards;
+}
+
+@keyframes goodbye {
+  33% {
+    transform:scale(2);
+  }
+  100% {
+    transform:scale(0);
+  }
+}
+
+.anim3 {
+  transition: 0.3s;
+}
+
+.anim3:focus {
+  animation: hello .3s backwards;
+}
+
+@keyframes hello {
+  33% {
+    transform:scale(0);
+  }
+  100% {
+    transform:scale(2);
+  }
 }
 
 .pyg-button {
