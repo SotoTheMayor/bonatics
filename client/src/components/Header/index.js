@@ -9,6 +9,8 @@ import Auth from "../../utils/auth";
 const Header = (event) => {
   const logout = (event) => {
     Auth.logout();
+    localStorage.clear();
+    window.location.assign('/');
   };
 
 // pull in logged in user's user name
