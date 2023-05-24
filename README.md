@@ -40,7 +40,7 @@ Follow the steps below to get the development environment running:
 
 ## Usage
 
-Here is the link to our deployed application: 
+Here is the link to our [deployed application](https://bonatics.herokuapp.com/)
 
 
 Below is a screenshot of our webpage!
