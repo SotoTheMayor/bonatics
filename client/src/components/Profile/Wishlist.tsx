@@ -4,6 +4,7 @@ interface wishlistProps {
     callbackWish: any
 }
 
+//renders the list of wish items per logged in user on the .map in profile
 const Wishlist = (props: wishlistProps) => {
     return (
         <div className="wl-container">

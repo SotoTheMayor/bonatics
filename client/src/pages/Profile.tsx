@@ -12,10 +12,8 @@ import WishTradeGroup from "../components/Profile/WishTradeGroup";
 export default function Profile() {
     // pull in user's User Name
     const { loading, data } = useQuery(QUERY_ME);
-    // const [getWishTrade, {data: gwtData, error: gwtError}] = useLazyQuery(QUERY_WISHTRADE)
 
     const user = data?.me || '(No User Name Found)';
-    console.log(user);
 
     const tradelistItems = user?.trade || []
     const wishlistItems = user?.wish || []
@@ -23,6 +21,7 @@ export default function Profile() {
     const [profileTradeList, setProfileTradeList] = useState(tradelistItems)
     const [profileWishList, setProfileWishList] = useState(wishlistItems)
 
+    //mutation to remove the corresponding item from the user's trade subdocument
     const [removeTrade, { error: tradeError }] = useMutation(REMOVE_TRADE)
     const handleTradeDelete = async (plant: any) => {
         console.log(plant)
@@ -32,11 +31,12 @@ export default function Profile() {
                     plantId: plant,
                 },
             });
-            await setProfileTradeList(data.me.trade)
+            setProfileTradeList(data.me.trade)
         }
         catch (err) { console.log(err) }
     };
 
+    //mutation to remove the corresponding item from the user's wish subdocument
     const [removeWish, { error: wishError }] = useMutation(REMOVE_WISH)
     const handleWishDelete = async (plant: any) => {
         console.log(plant)
@@ -48,7 +48,7 @@ export default function Profile() {
                     // }
                 },
             });
-            await setProfileWishList(data.me.wish)
+            setProfileWishList(data.me.wish)
         }
         catch (err) { console.log(err) }
     };

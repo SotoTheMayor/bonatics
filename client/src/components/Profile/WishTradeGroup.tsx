@@ -8,6 +8,7 @@ interface wishTradeGroupProps {
     plantId: any,
 }
 
+//query for determining which other users have trade available that matches the logged in user's wish
 const WishTradeGroup = (props: wishTradeGroupProps) => {
     const {loading, data: users, error } = useQuery(QUERY_WISHTRADE, {
         variables: { plantId: props.plantId }
@@ -15,7 +16,8 @@ const WishTradeGroup = (props: wishTradeGroupProps) => {
     if (loading) {
         return (<></>)
     }
-// console.log(users)
+
+    //maps the query response
     return (
      <>
      {users.wishTrade.map((user:any) => 
