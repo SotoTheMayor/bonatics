@@ -84,7 +84,7 @@ export default function Profile() {
                             })}
                         </div>
                     </div>
-                    <div className="trade-cont">
+                    <div className="OOT-cont">
                         <div className="prof-sub-header">Plant Your Garden</div>
                         <div className="spacer">
                             {wishlistItems?.map((wish: any) => {

@@ -5,6 +5,7 @@ import { QUERY_ME, QUERY_USERS } from "../utils/queries";
 import { ADD_TRADE, ADD_WISH } from '../utils/mutations';
 import { useMutation } from '@apollo/client';
 import Tile from "./Tile";
+import logo from '../images/house-plants.jpg'
 import {
     Container,
     Col,
@@ -33,6 +34,14 @@ const Home = () => {
         } return true
     }
 
+    function imageReplace(array: any) {
+        for (let i = 0; i < array.length; i++) {
+            if (array[i].plantImage === undefined) {
+                array[i].plantImage = logo
+            }
+        } 
+    }
+
     //maps over the API response when a type of plant is searched
     const handleFormSubmit = async (event: any) => {
         event.preventDefault();
@@ -53,6 +62,10 @@ const Home = () => {
                 plantId: plant.id,
             }));
             console.log(plantData)
+
+
+            imageReplace(plantData)
+
             setSearchedPlants(plantData)
         } catch (err) {
             console.error(err)
@@ -121,7 +134,6 @@ const Home = () => {
                             name='searchinput'
                             className='search'
                             value={searchInput}
-                            // size='lg'
                             type='text'
                             placeholder="Search for a plant"
                             onChange={handleInputChange}
