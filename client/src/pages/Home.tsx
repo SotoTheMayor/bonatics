@@ -132,10 +132,8 @@ const Home = () => {
                             onChange={handleInputChange}
                         />
 
-                        <Button onClick={() => setSubmitted(true)} type='submit' variant='success' className="search-button">
-
-
-                            Submit Search
+                        <Button onClick={() => setSubmitted(true)} type='submit' variant='success' className="search-button button">
+                        Search
                         </Button>
                     </Form>
 
