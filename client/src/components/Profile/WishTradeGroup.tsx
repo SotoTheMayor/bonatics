@@ -15,7 +15,7 @@ const WishTradeGroup = (props: wishTradeGroupProps) => {
     if (loading) {
         return (<></>)
     }
-console.log(users)
+// console.log(users)
     return (
      <>
      {users.wishTrade.map((user:any) => 
