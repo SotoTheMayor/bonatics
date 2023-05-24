@@ -24,16 +24,16 @@ const Home = () => {
 
     const { loading, data } = useQuery(QUERY_ME);
 
+    //function to test whether a plant is already on a wish or trade list for the user, and prevents a duplicate
     function search(plant: any, array: any) {
         for (let i = 0; i < array.length; i++) {
             if (array[i].plantId === plant) {
-                console.log(array[i].plantId + ' = ' + plant)
-                console.log("++++plant already on your list+++")
                 return false
             }
         } return true
     }
 
+    //maps over the API response when a type of plant is searched
     const handleFormSubmit = async (event: any) => {
         event.preventDefault();
         if (!searchInput) {
@@ -59,13 +59,12 @@ const Home = () => {
         }
     }
 
+    //mutation to add to a users "trade" list
     const [addTrade, { error: tradeError }] = useMutation(ADD_TRADE)
     const handleTradeInput = async (plant: any) => {
         console.log(plant)
         const tradeArray = data.me.trade
         if (search(plant.plantId, tradeArray)) {
-
-            // if(data.me.trade.includes(plant.plantId)) {
             try {
                 await addTrade({
                     variables: {
@@ -76,12 +75,12 @@ const Home = () => {
                         }
                     },
                 });
-
             }
             catch (err) { console.log(err) }
         } else { console.log('plant already on your list!') }
     };
 
+        //mutation to add to a users "trade" list
     const [addWish, { error: wishError }] = useMutation(ADD_WISH)
     const handleWishInput = async (plant: any) => {
         console.log(plant)
@@ -108,10 +107,9 @@ const Home = () => {
         const value = event.target.value;
         setSearchInput(value);
 
-        if (value == "") {
+        if (value === "") {
             setSubmitted(false);
         }
-
     }
 
     return (
@@ -128,7 +126,6 @@ const Home = () => {
                             placeholder="Search for a plant"
                             onChange={handleInputChange}
                         />
-
                         <Button onClick={() => setSubmitted(true)} type='submit' variant='success' className="search-button button">
                             Search
                         </Button>
@@ -145,8 +142,6 @@ const Home = () => {
                 </div></>}
 
 
-
-
                 {submitted && <> <div className="tile-container">
                     {searchedPlants.slice(0, 12).map((plant: any) => {
                         return (
@@ -154,8 +149,6 @@ const Home = () => {
                                 key={plant.plantId}
                                 title={plant.plantName}
                                 image={plant.plantImage}
-                                // description={tile.description}
-                                // url={tile.url}
                                 description='Description'
                                 callbackTrade={() => handleTradeInput(plant)}
                                 callbackWish={() => handleWishInput(plant)}

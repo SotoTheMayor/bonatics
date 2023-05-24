@@ -6,9 +6,6 @@ const wishSchema = require('./Wish');
 
 const tradeSchema  = require('./Trade');
 
-
-// const bcrypt = require('bcrypt');
-
 const userSchema = new Schema({
     userName: {
       type: String,

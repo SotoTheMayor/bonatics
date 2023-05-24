@@ -9,7 +9,6 @@
     "install": "cd server && npm i && cd ../client && npm i",
     "build": "cd client && npm run build",
     "seed": "cd server && npm run seed"
-    
   },
   "keywords": [],
   "author": "",
@@ -17,6 +16,7 @@
   "devDependencies": {
     "concurrently": "^5.1.0",
     "dotenv": "^8.2.0"
+
   },
   "dependencies": {
     "apollo-server-express": "^3.6.1",

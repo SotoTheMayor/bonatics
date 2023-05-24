@@ -1,7 +1,6 @@
-const { Schema, Types } = require('mongoose');
+const { Schema } = require('mongoose');
 
-// sub document, don't need model, Types is a class built into mongoose and auto generates and id
-
+// connected to the User, this wish list is populated from the Perunal API
 const wishSchema = new Schema({
     plantName: {
       type: String,
@@ -15,10 +14,6 @@ const wishSchema = new Schema({
       type: String,
       required: false,
     },
-    // wishID: {
-    //     type: Schema.Types.ObjectId,
-    //     default: () => new Types.ObjectId(),
-    // },
   });
   
   module.exports =  wishSchema ;
