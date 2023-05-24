@@ -90,6 +90,7 @@ export default function Profile() {
                             {wishlistItems?.map((wish: any) => {
                                 return (
                                     <WishTradeGroup
+                                        key={'WT' + wish.plantId}
                                         plantId={wish.plantId}
                                         plantName={wish.plantName}
                                     ></WishTradeGroup>
