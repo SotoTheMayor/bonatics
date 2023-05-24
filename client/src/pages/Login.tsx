@@ -23,7 +23,6 @@ const Login = () => {
     //tests the form state against Auth middleware
     const handleFormSubmit = async (event: any) => {
       event.preventDefault();
-      console.log(formState);
       try {
         const { data } = await login({
           variables: { ...formState },

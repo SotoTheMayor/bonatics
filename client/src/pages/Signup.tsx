@@ -29,8 +29,6 @@ const Signup = () => {
     // submit form
     const handleFormSubmit = async (event: any) => {
         event.preventDefault();
-        console.log(formState);
-
         try {
             const { data } = await addUser({
                 variables: { ...formState },

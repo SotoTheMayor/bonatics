@@ -7,8 +7,7 @@ interface tradelistProps {
 
 //render for contact info of associated "for trade" users in the Plant Your Garden/Wish Trade profile section
 const WishTrade = (props: tradelistProps) => {
-    const email = props.user.email
-    console.log(props.user.trade);
+    const email = props.user.email;
     
     return (
         <div className="wl-container">

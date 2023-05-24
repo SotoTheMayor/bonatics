@@ -1,9 +1,8 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState } from "react";
 import Wishlist from '../components/Profile/Wishlist';
 import Tradelist from '../components/Profile/Tradelist';
-import WishTrade from '../components/Profile/PYG'
-import { useLazyQuery, useQuery } from "@apollo/client";
-import { QUERY_ME, QUERY_USERS, QUERY_WISHTRADE } from "../utils/queries";
+import { useQuery } from "@apollo/client";
+import { QUERY_ME } from "../utils/queries";
 import { useMutation } from "@apollo/client";
 import { REMOVE_TRADE, REMOVE_WISH } from "../utils/mutations";
 import Auth from "../utils/auth"
@@ -24,7 +23,6 @@ export default function Profile() {
     //mutation to remove the corresponding item from the user's trade subdocument
     const [removeTrade, { error: tradeError }] = useMutation(REMOVE_TRADE)
     const handleTradeDelete = async (plant: any) => {
-        console.log(plant)
         try {
             await removeTrade({
                 variables: {
@@ -39,7 +37,6 @@ export default function Profile() {
     //mutation to remove the corresponding item from the user's wish subdocument
     const [removeWish, { error: wishError }] = useMutation(REMOVE_WISH)
     const handleWishDelete = async (plant: any) => {
-        console.log(plant)
         try {
             await removeWish({
                 variables: {
