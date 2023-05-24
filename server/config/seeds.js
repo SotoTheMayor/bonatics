@@ -16,7 +16,6 @@ db.once("open", async () => {
 
   console.log("**Seeded!!");
   const test = await User.findOne({ userName: "Bonatics" });
-  console.log(test);
 
   process.exit();
 });

@@ -1,10 +1,11 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState } from "react";
 import { searchPerenualAPI } from "../utils/PerenualAPI";
 import { useQuery } from "@apollo/client";
-import { QUERY_ME, QUERY_USERS } from "../utils/queries";
+import { QUERY_ME } from "../utils/queries";
 import { ADD_TRADE, ADD_WISH } from '../utils/mutations';
 import { useMutation } from '@apollo/client';
 import Tile from "./Tile";
+import logo from '../images/logo-color.png'
 import {
     Container,
     Col,
@@ -33,6 +34,15 @@ const Home = () => {
         } return true
     }
 
+    //runs through the API return and replaces any missing images
+    function imageReplace(array: any) {
+        for (let i = 0; i < array.length; i++) {
+            if (array[i].plantImage === undefined) {
+                array[i].plantImage = logo
+            }
+        } 
+    }
+
     //maps over the API response when a type of plant is searched
     const handleFormSubmit = async (event: any) => {
         event.preventDefault();
@@ -52,7 +62,8 @@ const Home = () => {
                 plantImage: plant.default_image.small_url,
                 plantId: plant.id,
             }));
-            console.log(plantData)
+
+            imageReplace(plantData)
             setSearchedPlants(plantData)
         } catch (err) {
             console.error(err)
@@ -62,7 +73,6 @@ const Home = () => {
     //mutation to add to a users "trade" list
     const [addTrade, { error: tradeError }] = useMutation(ADD_TRADE)
     const handleTradeInput = async (plant: any) => {
-        console.log(plant)
         const tradeArray = data.me.trade
         if (search(plant.plantId, tradeArray)) {
             try {
@@ -83,7 +93,6 @@ const Home = () => {
         //mutation to add to a users "trade" list
     const [addWish, { error: wishError }] = useMutation(ADD_WISH)
     const handleWishInput = async (plant: any) => {
-        console.log(plant)
         const wishArray = data.me.wish
         if (search(plant.plantId, wishArray)) {
 
@@ -121,7 +130,6 @@ const Home = () => {
                             name='searchinput'
                             className='search'
                             value={searchInput}
-                            // size='lg'
                             type='text'
                             placeholder="Search for a plant"
                             onChange={handleInputChange}

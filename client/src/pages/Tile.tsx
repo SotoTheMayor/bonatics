@@ -1,6 +1,5 @@
 import React from "react";
 import Auth from "../utils/auth";
-import logo from '../images/logo-no-bg.png'
 interface cardProps {
 title: string,
 image: string,

@@ -17,7 +17,6 @@ const resolvers = {
       throw new AuthenticationError("You need to be logged in!");
     },
     wishTrade: async (parent, { plantId }, context) => {
-      console.log(context.user);
       if (context.user) {
         // on the user profile page, call the user's trade array of plantIds
         return User.find({ "trade.plantId": plantId });
@@ -61,9 +60,6 @@ const resolvers = {
       throw new AuthenticationError("You need to be logged in!");
     },
     addTrade: async (parent, { tradeData }, context) => {
-      console.log(context.user);
-      console.log("trade new!!!");
-      console.log(tradeData + "trade");
 
       if (context.user) {
         const user = await User.findByIdAndUpdate(
