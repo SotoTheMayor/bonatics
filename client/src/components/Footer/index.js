@@ -20,7 +20,7 @@ const Footer = () => {
                     <img src="twitter_icon.png" alt="Twitter Icon" width="30px" />
                 </a>
                 <a href="https://github.com/SotoTheMayor/bonatics">
-                    <img src="Instagram_icon.png" alt="Instagram Icon" width="30px" />
+                    <img src="instagram_icon.png" alt="Instagram Icon" width="30px" />
                 </a>
 
             </div>
