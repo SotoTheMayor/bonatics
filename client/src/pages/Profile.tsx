@@ -93,6 +93,7 @@ export default function Profile() {
                                 return (
                                     <WishTradeGroup
                                         plantId={wish.plantId}
+                                        plantName={wish.plantName}
                                     ></WishTradeGroup>
                         
                                 )
