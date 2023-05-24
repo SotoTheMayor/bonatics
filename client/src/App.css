@@ -260,19 +260,25 @@ input{
 
 .login-button {
   color: white;
-  width: 50%;
-  margin-top: 30px;
+  width: 50% !important;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 250%);
+
 
 }
 
 .signup-button {
   margin-top: 15px;
   color: white;
-  width: 50%;
+  width: 50% !important;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 250%);
 }
 
-.button {
-}
 
 .button:hover {
 background-image: linear-gradient(to bottom, #50a060 , #366e41 );
@@ -313,6 +319,7 @@ background-image: linear-gradient(to bottom, #50a060 , #366e41 );
 .login-cont {
 background-color: transparent;
   width: 100%;
+  margin: 0px !important;
 }
 
 .login-card {
@@ -433,7 +440,53 @@ background-color: transparent;
   display: none;
 }
 
+@media only screen and (max-width: 1500px) {
+  .login-card {
+    height: 40% !important;
+  }
+
+  .signup-card {
+    height: 50vh !important;
+    width: 50% !important;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .login-card {
+    width: 40% !important;
+    height: 50% !important;
+  }
+
+  .signup-card {
+    height: 50vh !important;
+    width: 60% !important;
+  }
+}
+
 @media only screen and (max-width: 940px) {
+
+  .login-input {
+    height: 30px !important;
+    margin-top: 15px !important;
+  }
+
+  .login-card {
+    width: 50% !important;
+    height: 40% !important;
+  }
+
+  .signup-card {
+    height: 45vh !important;
+    width: 75% !important;
+  }
+
+  .login-button {
+    transform: translate(-50%, 200%);
+  }
+
+  .signup-button {
+    transform: translate(-50%, 275%);
+  }
 
   .prof-1 {
     flex-direction: column;
@@ -445,6 +498,12 @@ background-color: transparent;
 
   .trade-cont {
     border-bottom-style: none;
+  }
+}
+
+@media only screen and (max-width: 830px) {
+  .login-card {
+    width: 60% !important;
   }
 }
 
@@ -510,11 +569,26 @@ font-size: 16px;
     padding-left: 10px;
     
   }
+
+  .login-card {
+    width: 75% !important;
+  }
 }
 
 @media screen and (max-width: 605px){
   .wl-item {
     font-size: 10px !important;
+  }
+
+}
+
+@media only screen and (max-width: 540px) {
+  .login-card {
+    height: 45vh!important;
+  }
+
+  .signup-card {
+    height: 55vh!important;
   }
 }
 
@@ -530,7 +604,15 @@ font-size: 16px;
   .trade-cont {
     border-bottom-style: none;
   }
+
+  .login-card {
+    width: 100vw !important;
+    height: 45vh !important;
+    position: absolute;
+    
+  }
 }
+
 
 
   @media only screen and (max-width: 400px) {
@@ -553,6 +635,10 @@ font-size: 16px;
     .search-cont {
       padding-left: 0px;
       padding-right: 0px;
+    }
+
+    .login-card {
+      height: 55vh!important;
     }
   }
 
