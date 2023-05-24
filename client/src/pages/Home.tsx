@@ -133,9 +133,7 @@ const Home = () => {
                         />
 
                         <Button onClick={() => setSubmitted(true)} type='submit' variant='success' className="search-button button">
-
-
-                            Submit Search
+                        Search
                         </Button>
                     </Form>
 

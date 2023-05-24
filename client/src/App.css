@@ -372,6 +372,7 @@ background-color: transparent;
   font-weight: bolder;
   padding-left:15px;
   padding-bottom: 5px;
+  z-index: 50 !important;
 }
 
 .spacer {
@@ -386,7 +387,6 @@ background-color: transparent;
   border-right-width: 0px;
   border-color: #50a060;
   background-image: linear-gradient(to bottom, rgba(223, 255, 202, 0.7) , #52525233 );
-  transition: ;
 }
 
 .wl-container:hover {
@@ -433,13 +433,58 @@ background-color: transparent;
   display: none;
 }
 
+@media only screen and (max-width: 940px) {
+
+  .prof-1 {
+    flex-direction: column;
+  }
+
+  .OOT-cont, .wishlist-cont {
+    width: 100%;
+  }
+
+  .trade-cont {
+    border-bottom-style: none;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .wl-item {
+    font-size: 12px;
+  }
+
+}
+
+
 @media only screen and (max-width: 710px) {
 .logo {
   display: none
 }
 
+.search-cont {
+  height: 50px;
+}
+
+.search {
+  height: 30px !important;
+  font-size: 12px !important;
+}
+
+.search-button {
+  height: 30px;
+  font-size: 12px !important;
+}
+
+.hero-text {
+  font-size: 80px;
+}
+
 .profile-header, .prof-sub-header {
 font-size: 16px;
+}
+
+.spacer {
+  margin-top: 30px;
 }
 
 .wl-container {
@@ -450,38 +495,66 @@ font-size: 16px;
   font-size:12px;
 
 }
-
-
 }
 
-@media only screen and (max-width: 430px) {
+@media screen and (max-width: 660px){
+  .wl-item {
+    padding: 0px !important;
+  }
 
-  
-  .profile-header, .prof-sub-header {
-  font-size: 12px;
+  .profile-header {
+    margin-left: 10px;
   }
-  
-  .wl-container {
-    padding: 2px;
-    display:flex;
+
+  .prof-sub-header {
+    padding-left: 10px;
+    
   }
-  
-  .wl-item, .wl-button {
-    font-size:8px;
-  
+}
+
+@media screen and (max-width: 605px){
+  .wl-item {
+    font-size: 10px !important;
   }
-  
-  
+}
+
+@media only screen and (max-width: 475px) {
+  .prof-1 {
+    flex-direction: column;
   }
+
+  .OOT-cont, .wishlist-cont {
+    width: 100%;
+  }
+
+  .trade-cont {
+    border-bottom-style: none;
+  }
+}
+
 
   @media only screen and (max-width: 400px) {
     li {
       margin: 5px;
 
     }
+
+    .hero-text {
+      font-size: 60px;
+    }
+
+    .search-cont {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
   }
 
-
+  @media only screen and (max-width: 375px) {
+    .search-cont {
+      padding-left: 0px;
+      padding-right: 0px;
+    }
+  }
 
 
 .App-logo {
