@@ -22,6 +22,7 @@ const WishTradeGroup = (props: wishTradeGroupProps) => {
      <>
      {users.wishTrade.map((user:any) => 
         <WishTrade 
+        key={user._id + props.plantId}
         user={user}
         plantName={props.plantName}
         ></WishTrade>
