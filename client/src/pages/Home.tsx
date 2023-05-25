@@ -51,7 +51,7 @@ const Home = () => {
         }
 
         try {
-            const token = `sk-k5vt646417c428ab7960`;
+            const token = process.env.REACT_APP_API_KEY;
             const response = await searchPerenualAPI(token, searchInput)
             if (!response.ok) {
                 throw new Error('something went wrong!')
