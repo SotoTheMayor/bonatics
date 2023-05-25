@@ -29,7 +29,6 @@ footer {
   padding: 30px;
   text-align: center;
   color: white;
-  /* background-color: rgba(223, 255, 202, 0.7); */
 }
 
 footer a {
@@ -96,7 +95,6 @@ li {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  /* text-align: center; */
 }
 
 .tile-cont {
@@ -175,6 +173,21 @@ transform: scale(1.03);
   border-color: rgba(223, 255, 202, 0.7);
   color: rgba(223, 255, 202, 0.7);
   box-shadow: 0px 0px 5px white;
+}
+
+.anim {
+  transition: 0.3s;
+}
+
+.anim:focus {
+  box-shadow: 0px 0px 0px 1px rgba(223, 255, 202, 0.7);
+  animation: button-click .2s forwards;
+}
+
+@keyframes button-click {
+  100% {
+    box-shadow: 0px 0px 10px 20px rgba(223, 255, 202, 0);
+  }
 }
 
 input{
@@ -262,22 +275,18 @@ input{
 .login-button {
   color: white;
   width: 50% !important;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, 250%);
-
+  margin-top: 20px !important;
+  margin-bottom: 20px !important;
 
 }
 
 .signup-button {
-  margin-top: 15px;
+  margin-top: 20px !important;
+  margin-bottom: 20px !important;
+  margin-bottom: 15px;
   color: white;
   width: 50% !important;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, 250%);
+
 }
 
 
@@ -323,15 +332,19 @@ background-color: transparent;
   margin: 0px !important;
 }
 
+
 .login-card {
+  display: inline-block !important;
+  box-sizing: border-box !important;
   border-style: none !important;
   background-color: rgba(223, 255, 202, 0.7) !important;
   width: 30% !important;
-  height: 50% !important;
   padding-left: 0px !important;
   padding-right: 0px !important;
+  padding-bottom: 20px !important;
   box-shadow: 5px 3px 20px 5px rgba(0, 0, 0, 0.2);
 }
+
 
 .login-header {
   width:100% !important;
@@ -399,7 +412,7 @@ background-color: transparent;
 
 .wl-container:hover {
   background-color: #366e41;
-  background-image: linear-gradient(to bottom, #52525213 , rgba(223, 255, 202, 0.37) );
+  background-image: linear-gradient(to bottom, #52525213 , rgba(223, 255, 202, 0.77) );
   .wl-item {
     color:white;
   }
@@ -425,6 +438,40 @@ background-color: transparent;
   transition: 0.1s ease-in;
 }
 
+.anim2 {
+  transition: 0.3s;
+}
+
+.anim2:focus {
+  animation: goodbye .3s forwards;
+}
+
+@keyframes goodbye {
+  33% {
+    transform:scale(2);
+  }
+  100% {
+    transform:scale(0);
+  }
+}
+
+.anim3 {
+  transition: 0.3s;
+}
+
+.anim3:focus {
+  animation: hello .3s backwards;
+}
+
+@keyframes hello {
+  33% {
+    transform:scale(0);
+  }
+  100% {
+    transform:scale(2);
+  }
+}
+
 .pyg-button {
   top: 0px;
 }
@@ -445,28 +492,7 @@ background-color: transparent;
   display: none;
 }
 
-@media only screen and (max-width: 1500px) {
-  .login-card {
-    height: 40% !important;
-  }
 
-  .signup-card {
-    height: 50vh !important;
-    width: 50% !important;
-  }
-}
-
-@media only screen and (max-width: 1200px) {
-  .login-card {
-    width: 40% !important;
-    height: 50% !important;
-  }
-
-  .signup-card {
-    height: 50vh !important;
-    width: 60% !important;
-  }
-}
 
 @media only screen and (max-width: 940px) {
 
@@ -477,20 +503,7 @@ background-color: transparent;
 
   .login-card {
     width: 50% !important;
-    height: 40% !important;
-  }
 
-  .signup-card {
-    height: 45vh !important;
-    width: 75% !important;
-  }
-
-  .login-button {
-    transform: translate(-50%, 200%);
-  }
-
-  .signup-button {
-    transform: translate(-50%, 275%);
   }
 
   .prof-1 {
@@ -587,15 +600,6 @@ font-size: 16px;
 
 }
 
-@media only screen and (max-width: 540px) {
-  .login-card {
-    height: 45vh!important;
-  }
-
-  .signup-card {
-    height: 55vh!important;
-  }
-}
 
 @media only screen and (max-width: 475px) {
   .prof-1 {
@@ -612,7 +616,6 @@ font-size: 16px;
 
   .login-card {
     width: 100vw !important;
-    height: 45vh !important;
     position: absolute;
     
   }
@@ -640,10 +643,6 @@ font-size: 16px;
     .search-cont {
       padding-left: 0px;
       padding-right: 0px;
-    }
-
-    .login-card {
-      height: 55vh!important;
     }
   }
 
